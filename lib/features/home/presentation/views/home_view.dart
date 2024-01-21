@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
-import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
 import 'package:shopping_app/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:shopping_app/features/wishlist/presentation/views/wishlist_view.dart';
+import 'package:shopping_app/features/profile/presentation/views/profile_view.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
 
@@ -22,9 +21,8 @@ class _HomeViewState extends State<HomeView> {
       HomeViewBody(
         scaffoldKey: _scaffoldKey,
       ),
-      const WishlistView(),
       const CartView(),
-      const PaymentView(),
+      const ProfileView(),
     ];
   }
 
@@ -110,24 +108,20 @@ class _HomeViewState extends State<HomeView> {
         BottomNavigationBarItem(
           icon: Visibility(
             visible: currentIndex != 1,
-            child: const Icon(Icons.favorite_border),
-          ),
-          label: 'Wishlist',
-        ),
-        BottomNavigationBarItem(
-          icon: Visibility(
-            visible: currentIndex != 2,
             child: Image.asset(AppAssets.bag),
           ),
           label: 'Order',
         ),
+        
         BottomNavigationBarItem(
           icon: Visibility(
-            visible: currentIndex != 3,
-            child: const Icon(Icons.wallet),
+            visible: currentIndex != 2,
+            child: const Icon(
+              Icons.account_circle_outlined,
+            ),
           ),
-          label: 'My cards',
-        )
+          label: 'Profile',
+        ),
       ],
     );
   }

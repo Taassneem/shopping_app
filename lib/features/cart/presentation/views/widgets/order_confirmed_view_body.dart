@@ -12,34 +12,37 @@ class OrderConfirmedViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Column(
-          children: [
-            const CustomAuthAppBar(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
-            Image.asset(
-              AppAssets.orderConfirmed,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
-            Text(
-              'Order confirmed',
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Your order has been confirmed, we will send you confirmation email shortly.',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.206,
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              const CustomAuthAppBar(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              Image.asset(
+                AppAssets.orderConfirmed,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.059,
+              ),
+              Text(
+                'Order confirmed',
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Your order has been confirmed, we will send you confirmation email shortly.',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displaySmall,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
+            ],
+          ),
         ),
         CustomGesterDetector(
           text: 'Continue Shopping',

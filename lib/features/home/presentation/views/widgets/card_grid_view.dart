@@ -13,12 +13,13 @@ class CardGridView extends StatelessWidget {
     return BlocBuilder<FetchProductsCubit, FetchProductsState>(
       builder: (context, state) {
         if (state is FetchProductsSuccess) {
-          return GridView.builder(
+          return SliverGrid.builder(
+            
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
-              childAspectRatio: .65,
+              childAspectRatio: .55,
             ),
             itemCount: state.product.length,
             itemBuilder: (BuildContext context, int index) {
@@ -29,10 +30,13 @@ class CardGridView extends StatelessWidget {
           );
         } else if (state is FetchProductsFailure) {
           log(state.errorMessage);
-          return CustomErrorMessage(errorMessage: state.errorMessage);
+          return SliverToBoxAdapter(
+              child: CustomErrorMessage(errorMessage: state.errorMessage));
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const SliverToBoxAdapter(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
           );
         }
       },

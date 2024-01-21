@@ -82,10 +82,10 @@ class HomeViewBody extends StatelessWidget {
                   children: [
                     Text(
                       AppString.chooseBrand,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayMedium!
-                          .copyWith(color: AppColors.black),
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: AppColors.black,
+                              ),
                     ),
                     Text(
                       AppString.viewAll,
@@ -105,10 +105,10 @@ class HomeViewBody extends StatelessWidget {
                   children: [
                     Text(
                       AppString.newArrivals,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayMedium!
-                          .copyWith(color: AppColors.black),
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: AppColors.black,
+                              ),
                     ),
                     Text(
                       AppString.viewAll,
@@ -122,7 +122,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          const SliverToBoxAdapter(child: CardGridView()),
+          const CardGridView(),
         ],
       ),
     );

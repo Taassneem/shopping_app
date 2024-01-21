@@ -13,6 +13,7 @@ import 'package:shopping_app/features/cart/presentation/views/payment_view.dart'
 import 'package:shopping_app/features/home/presentation/views/card_details_view.dart';
 import 'package:shopping_app/features/home/presentation/views/home_view.dart';
 import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
+import 'package:shopping_app/features/profile/presentation/views/profile_view.dart';
 import 'package:shopping_app/features/review/presentation/views/add_review_view.dart';
 import 'package:shopping_app/features/review/presentation/views/review_view.dart';
 import 'package:shopping_app/features/splash/presentation/views/splash_view.dart';
@@ -35,6 +36,7 @@ abstract class AppRouter {
   static const String addressView = '/addressView';
   static const String addNewCard = '/addNewCard';
   static const String orederConfirmedView = '/orederConfirmedView';
+  static const String profileView = '/profiledView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -72,6 +74,10 @@ abstract class AppRouter {
       GoRoute(
         path: cartView,
         builder: (context, state) => const CartView(),
+      ),
+      GoRoute(
+        path: profileView,
+        builder: (context, state) => const ProfileView(),
       ),
       GoRoute(
         path: homeView,
