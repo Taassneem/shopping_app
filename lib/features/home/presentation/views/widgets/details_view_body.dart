@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_gester_detector.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_text_button.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/rich_text.dart';
+import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/review/presentation/views/review_view.dart';
-import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/core/utils/app_string.dart';
 
 import 'review_info.dart';
 import 'size_card.dart';
-import 'stack_with_image.dart';
+import 'product_image.dart';
 import 'total_price.dart';
 
 class CardDetailsBody extends StatelessWidget {
-  const CardDetailsBody({super.key});
-
+  const CardDetailsBody({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -24,7 +24,9 @@ class CardDetailsBody extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const StackWithImage(),
+          ProductImage(
+            productModel: productModel,
+          ),
           const SizedBox(
             height: 15,
           ),
@@ -36,9 +38,14 @@ class CardDetailsBody extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Men\'s Printed Pullover Hoodie',
-                      style: Theme.of(context).textTheme.displaySmall,
+                    SizedBox(
+                      width: 300,
+                      child: Text(
+                        productModel.description ?? 'Unknown',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 14.0),
@@ -55,15 +62,20 @@ class CardDetailsBody extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Nike Club Fleece',
-                      style:
-                          Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: AppColors.black,
-                              ),
+                    SizedBox(
+                      width: 250,
+                      child: Text(
+                        productModel.title ?? 'Unknown',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: AppColors.black,
+                                ),
+                      ),
                     ),
                     Text(
-                      r'$120',
+                      r'$' '${productModel.price}',
                       style:
                           Theme.of(context).textTheme.displayMedium!.copyWith(
                                 color: AppColors.black,
@@ -74,27 +86,31 @@ class CardDetailsBody extends StatelessWidget {
                 const SizedBox(
                   height: 21,
                 ),
-                Row(
-                  children: [
-                    Image.asset(
-                      AppAssets.model2,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset(AppAssets.model3),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset(AppAssets.model4),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset(
-                      AppAssets.model5,
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Image.asset(
+                //       AppAssets.model2,
+                //     ),
+                //     const SizedBox(
+                //       width: 10,
+                //     ),
+                //     Image.asset(
+                //       AppAssets.model3,
+                //     ),
+                //     const SizedBox(
+                //       width: 10,
+                //     ),
+                //     Image.asset(
+                //       AppAssets.model4,
+                //     ),
+                //     const SizedBox(
+                //       width: 10,
+                //     ),
+                //     Image.asset(
+                //       AppAssets.model5,
+                //     ),
+                //   ],
+                // ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -123,10 +139,18 @@ class CardDetailsBody extends StatelessWidget {
                     SizeCard(
                       size: 'S',
                     ),
-                    SizeCard(size: 'M'),
-                    SizeCard(size: 'L'),
-                    SizeCard(size: 'XL'),
-                    SizeCard(size: '2XL'),
+                    SizeCard(
+                      size: 'M',
+                    ),
+                    SizeCard(
+                      size: 'L',
+                    ),
+                    SizeCard(
+                      size: 'XL',
+                    ),
+                    SizeCard(
+                      size: '2XL',
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -141,10 +165,10 @@ class CardDetailsBody extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const Richtext(
-                    text:
-                        'The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feel with',
-                    textButton: ' Read More..'),
+                Richtext(
+                  text: productModel.description ?? '',
+                  textButton: ' Read More..',
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -178,7 +202,9 @@ class CardDetailsBody extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const TotalPrice(),
+                TotalPrice(
+                  productModel: productModel,
+                ),
               ],
             ),
           ),

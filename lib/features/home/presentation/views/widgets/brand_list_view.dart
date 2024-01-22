@@ -9,20 +9,20 @@ class BrandListView extends StatelessWidget {
   const BrandListView({super.key});
   final List<BrandModel> brandList = const [
     BrandModel(
-      image: AppAssets.adidas,
-      text: AppString.adidas,
+      image: AppAssets.electronics,
+      text: AppString.electronics,
     ),
     BrandModel(
-      image: AppAssets.nike,
-      text: AppString.nike,
+      image: AppAssets.jewelery,
+      text: AppString.jewelery,
     ),
     BrandModel(
-      image: AppAssets.fila,
-      text: AppString.fila,
+      image: AppAssets.womenClothing,
+      text: AppString.womenClothing,
     ),
     BrandModel(
-      image: AppAssets.fila,
-      text: AppString.fila,
+      image: AppAssets.menClothing,
+      text: AppString.menClothing,
     ),
   ];
   @override
@@ -35,7 +35,7 @@ class BrandListView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(right: 8.0),
-            child: BrandItem(brandModel: brandList[index]),
+            child: BrandItem(brandModel: brandList[index], ),
           );
         },
       ),

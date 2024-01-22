@@ -7,28 +7,32 @@ class Richtext extends StatelessWidget {
     super.key,
     required this.text,
     required this.textButton,
-    this.textAlign = TextAlign.start,
+    this.textAlign = TextAlign.start, this.onTap,
   });
   final String text;
   final String textButton;
   final TextAlign textAlign;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return RichText(
       textAlign: textAlign,
-      text:
-          TextSpan(style: Theme.of(context).textTheme.displaySmall, children: [
-        TextSpan(
-          text: text,
-        ),
-        TextSpan(
+      text: TextSpan(
+        style: Theme.of(context).textTheme.displaySmall,
+        children: [
+          TextSpan(
+            text: text,
+          ),
+          TextSpan(
             text: textButton,
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!
                 .copyWith(color: AppColors.black),
-            recognizer: TapGestureRecognizer()..onTap = () {}),
-      ]),
+            recognizer: TapGestureRecognizer()..onTap = onTap,
+          ),
+        ],
+      ),
     );
   }
 }

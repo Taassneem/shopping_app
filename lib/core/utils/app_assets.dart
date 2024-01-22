@@ -13,6 +13,10 @@ class AppAssets {
   static const String adidas = '${basePath}Adidas.png';
   static const String fila = '${basePath}fila.png';
   static const String voice = '${basePath}Voice.png';
+  static const String menClothing = '${basePath}shirt.png';
+  static const String womenClothing = '${basePath}dress.png';
+  static const String electronics = '${basePath}electronics.png';
+  static const String jewelery = '${basePath}rings.png';
   static const String backArrow = '${basePath}Arrow-Left.png';
   static const String logoNike = '${basePath}LogoNike.png';
   static const String model2 = '${basePath}Rectangle2.png';

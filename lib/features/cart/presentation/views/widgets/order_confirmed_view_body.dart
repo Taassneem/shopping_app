@@ -18,13 +18,13 @@ class OrderConfirmedViewBody extends StatelessWidget {
             children: [
               const CustomAuthAppBar(),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: MediaQuery.of(context).size.height * 0.088,
               ),
               Image.asset(
                 AppAssets.orderConfirmed,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.059,
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               Text(
                 'Order confirmed',

@@ -36,6 +36,10 @@ class AppString {
   static const adidas = 'Adidas';
   static const nike = 'Nike';
   static const fila = 'Fila';
+  static const jewelery = 'Jewelery';
+  static const electronics = 'Electronics';
+  static const menClothing = 'Men ';
+  static const womenClothing = 'Women ';
   static const viewAll = 'Viwe All';
   static const newArrivals = 'New Arrivals';
   static const description = 'Description';

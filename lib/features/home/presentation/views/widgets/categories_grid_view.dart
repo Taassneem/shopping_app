@@ -1,18 +1,21 @@
 import 'dart:developer';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/core/utils/widget/custom_error_message.dart';
-import 'package:shopping_app/features/home/presentation/manager/fetch_products_cubit/fetch_products_cubit.dart';
-import 'package:shopping_app/features/home/presentation/views/widgets/custom_card.dart';
+import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 
-class CardGridView extends StatelessWidget {
-  const CardGridView({super.key});
+import 'custom_card.dart';
+
+class CategoriesGridView extends StatelessWidget {
+  const CategoriesGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FetchProductsCubit, FetchProductsState>(
+    return BlocBuilder<FetchCategoriesCubit, FetchCategoriesState>(
       builder: (context, state) {
-        if (state is FetchProductsSuccess) {
+        if (state is FetchCategoriesSuccess) {
           return SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -27,7 +30,7 @@ class CardGridView extends StatelessWidget {
               );
             },
           );
-        } else if (state is FetchProductsFailure) {
+        } else if (state is FetchCategoriesFailure) {
           log(state.errorMessage);
           return SliverToBoxAdapter(
             child: CustomErrorMessage(

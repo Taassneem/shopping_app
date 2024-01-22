@@ -10,7 +10,6 @@ import 'package:shopping_app/features/cart/presentation/views/address_view.dart'
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/order_confirmed_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
-import 'package:shopping_app/features/home/presentation/views/card_details_view.dart';
 import 'package:shopping_app/features/home/presentation/views/home_view.dart';
 import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
 import 'package:shopping_app/features/profile/presentation/views/profile_view.dart';
@@ -37,6 +36,7 @@ abstract class AppRouter {
   static const String addNewCard = '/addNewCard';
   static const String orederConfirmedView = '/orederConfirmedView';
   static const String profileView = '/profiledView';
+  static const String categoriesView = '/categoriesView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -91,10 +91,10 @@ abstract class AppRouter {
         path: addReviewView,
         builder: (context, state) => const AddReviewView(),
       ),
-      GoRoute(
-        path: cartDetailsView,
-        builder: (context, state) => const CardDetailsView(),
-      ),
+      // GoRoute(
+      //   path: cartDetailsView,
+      //   builder: (context, state) => const CardDetailsView(),
+      // ),
       GoRoute(
         path: addressView,
         builder: (context, state) => const AddressView(),
@@ -111,6 +111,7 @@ abstract class AppRouter {
         path: orederConfirmedView,
         builder: (context, state) => const OrderConfirmedView(),
       ),
+      
     ],
   );
 }
