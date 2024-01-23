@@ -5,7 +5,8 @@ import 'package:shopping_app/features/home/data/models/product_model/product_mod
 
 class TotalPrice extends StatelessWidget {
   const TotalPrice({
-    super.key, required this.productModel,
+    super.key,
+    required this.productModel,
   });
   final ProductModel productModel;
   @override

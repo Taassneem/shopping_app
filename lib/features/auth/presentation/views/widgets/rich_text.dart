@@ -7,7 +7,8 @@ class Richtext extends StatelessWidget {
     super.key,
     required this.text,
     required this.textButton,
-    this.textAlign = TextAlign.start, this.onTap,
+    this.textAlign = TextAlign.start,
+    this.onTap,
   });
   final String text;
   final String textButton;

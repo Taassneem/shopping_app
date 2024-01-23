@@ -47,14 +47,20 @@ class HomeViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const BrandListView(),
-                const SizedBox(
+              ],
+            ),
+          ),
+          const BrandListView(),
+          const SliverToBoxAdapter(
+            child: Column(
+              children: [
+                SizedBox(
                   height: 15,
                 ),
-                const ViewAllScreen(
+                ViewAllScreen(
                   viewName: AppString.newArrivals,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 15,
                 ),
               ],

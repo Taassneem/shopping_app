@@ -5,7 +5,9 @@ import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
 
 class CustomCategoriesAppBar extends StatelessWidget {
-  const CustomCategoriesAppBar({super.key, });
+  const CustomCategoriesAppBar({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -35,7 +37,7 @@ class CustomCategoriesAppBar extends StatelessWidget {
             color: AppColors.lightGrey,
           ),
           child: Image.asset(
-           AppAssets.adidas,
+            AppAssets.adidas,
           ),
         ),
         Container(

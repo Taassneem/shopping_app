@@ -51,7 +51,6 @@ class ReviewInfo extends StatelessWidget {
                 )
               ],
             ),
-            
             const SizedBox(
               width: 95,
             ),
