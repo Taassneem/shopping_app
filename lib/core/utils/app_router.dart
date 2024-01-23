@@ -10,6 +10,7 @@ import 'package:shopping_app/features/cart/presentation/views/address_view.dart'
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/order_confirmed_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
+import 'package:shopping_app/features/home/presentation/views/categories_view.dart';
 import 'package:shopping_app/features/home/presentation/views/home_view.dart';
 import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
 import 'package:shopping_app/features/profile/presentation/views/profile_view.dart';
@@ -111,7 +112,10 @@ abstract class AppRouter {
         path: orederConfirmedView,
         builder: (context, state) => const OrderConfirmedView(),
       ),
-      
+      GoRoute(
+        path: categoriesView,
+        builder: (context, state) => const CategoriesView(),
+      ),
     ],
   );
 }

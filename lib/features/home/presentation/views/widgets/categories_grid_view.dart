@@ -13,7 +13,7 @@ class CategoriesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FetchCategoriesCubit, FetchCategoriesState>(
       builder: (context, state) {
-        if (state is FetchCategoriesSuccess) {
+        if (state is FetchCategoryProductsSuccess) {
           return SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -21,14 +21,14 @@ class CategoriesGridView extends StatelessWidget {
               crossAxisSpacing: 10,
               childAspectRatio: .55,
             ),
-            itemCount: state.product.length,
+            itemCount: state.products.length,
             itemBuilder: (BuildContext context, int index) {
               return CustomCard(
-                productModel: state.product[index],
+                productModel: state.products[index],
               );
             },
           );
-        } else if (state is FetchCategoriesFailure) {
+        } else if (state is FetchCategoryProductsFailure) {
           log(state.errorMessage);
           return SliverToBoxAdapter(
             child: CustomErrorMessage(
