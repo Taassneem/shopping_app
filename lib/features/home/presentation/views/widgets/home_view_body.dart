@@ -51,16 +51,21 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const BrandListView(),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 ViewAllScreen(
                   viewName: AppString.newArrivals,
+                  onPressed: () {
+                    GoRouter.of(context).push(
+                      AppRouter.allProductView,
+                    );
+                  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
               ],

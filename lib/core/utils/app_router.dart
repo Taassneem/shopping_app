@@ -15,6 +15,7 @@ import 'package:shopping_app/features/cart/presentation/views/payment_view.dart'
 import 'package:shopping_app/features/home/data/models/category_model.dart';
 import 'package:shopping_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
+import 'package:shopping_app/features/home/presentation/views/all_products_view.dart';
 import 'package:shopping_app/features/home/presentation/views/categories_view.dart';
 import 'package:shopping_app/features/home/presentation/views/home_view.dart';
 import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
@@ -43,6 +44,7 @@ abstract class AppRouter {
   static const String orederConfirmedView = '/orederConfirmedView';
   static const String profileView = '/profiledView';
   static const String categoriesView = '/categoriesView';
+  static const String allProductView = '/allProductView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -112,6 +114,10 @@ abstract class AppRouter {
       GoRoute(
         path: orederConfirmedView,
         builder: (context, state) => const OrderConfirmedView(),
+      ),
+      GoRoute(
+        path: allProductView,
+        builder: (context, state) => const AllProductView(),
       ),
       GoRoute(
         path: categoriesView,

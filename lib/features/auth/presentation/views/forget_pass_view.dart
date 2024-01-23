@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
-import 'package:shopping_app/features/auth/presentation/views/verification_code_view.dart';
-
+import 'package:shopping_app/core/utils/app_router.dart';
 import '../../../../core/utils/app_string.dart';
 import 'widgets/custom_auth_app_bar.dart';
 import 'widgets/custom_gester_detector.dart';
@@ -12,12 +12,17 @@ class ForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 20.0,
+                top: 20,
+                right: 20,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -35,8 +40,8 @@ class ForgetPasswordView extends StatelessWidget {
                         AppString.forgetPass,
                         style: Theme.of(context).textTheme.displayLarge,
                       ),
-                      const SizedBox(
-                        height: 65,
+                      SizedBox(
+                        height: size * 0.08,
                       ),
                       Image.asset(AppAssets.password),
                       const SizedBox(
@@ -48,8 +53,8 @@ class ForgetPasswordView extends StatelessWidget {
                     hint: 'Enter your email address',
                     labelText: AppString.email,
                   ),
-                  const SizedBox(
-                    height: 105,
+                  SizedBox(
+                    height: size * 0.05,
                   ),
                   Text(
                     AppString.confirmMailQoute,
@@ -59,19 +64,16 @@ class ForgetPasswordView extends StatelessWidget {
                 ],
               ),
             ),
-            CustomGesterDetector(
-              text: AppString.confirmEmail,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const VerificationCodeView(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+          ),
+          CustomGesterDetector(
+            text: AppString.confirmEmail,
+            onTap: () {
+              GoRouter.of(context).push(
+                AppRouter.verificationCodeView,
+              );
+            },
+          )
+        ],
       ),
     );
   }

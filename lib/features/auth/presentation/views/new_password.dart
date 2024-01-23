@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/features/home/presentation/views/home_view.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/utils/app_router.dart';
 import '../../../../core/utils/app_string.dart';
 import 'widgets/custom_auth_app_bar.dart';
 import 'widgets/custom_gester_detector.dart';
@@ -11,11 +11,12 @@ class NewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -37,8 +38,8 @@ class NewPasswordView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 150,
+                  SizedBox(
+                    height: size * 0.1,
                   ),
                   const CustomTextField(
                     hint: 'Enter your password',
@@ -51,8 +52,8 @@ class NewPasswordView extends StatelessWidget {
                     hint: 'Confirm your password',
                     labelText: AppString.confirmPass,
                   ),
-                  const SizedBox(
-                    height: 244,
+                  SizedBox(
+                    height: size * 0.375,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -67,19 +68,16 @@ class NewPasswordView extends StatelessWidget {
                 ],
               ),
             ),
-            CustomGesterDetector(
-              text: AppString.resetPass,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeView(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+          ),
+          CustomGesterDetector(
+            text: AppString.resetPass,
+            onTap: () {
+              GoRouter.of(context).push(
+                AppRouter.homeView,
+              );
+            },
+          )
+        ],
       ),
     );
   }

@@ -45,7 +45,7 @@ class CardAddInCart extends StatelessWidget {
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               Row(
                 children: [

@@ -49,8 +49,7 @@ class IntoItem extends StatelessWidget {
                 CustomIntroElevatedButton(
                   text: AppString.men,
                   color: AppColors.lightGrey,
-                  leftPadding: 20,
-                  rightPadding: 20,
+                  horizontal: 20,
                 ),
                 SizedBox(
                   width: 30,
@@ -58,8 +57,7 @@ class IntoItem extends StatelessWidget {
                 CustomIntroElevatedButton(
                   text: AppString.women,
                   color: AppColors.primaryColor,
-                  leftPadding: 8,
-                  rightPadding: 8,
+                  horizontal: 20,
                   textColor: AppColors.white,
                 ),
               ],

@@ -10,7 +10,6 @@ class CustomGesterDetector extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        alignment: Alignment.bottomCenter,
         width: MediaQuery.of(context).size.width,
         height: 75,
         decoration: const BoxDecoration(

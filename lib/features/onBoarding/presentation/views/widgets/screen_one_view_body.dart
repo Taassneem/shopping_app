@@ -19,7 +19,6 @@ class ScreenOneViewBody extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 16.0,
-          vertical: 16,
         ),
         child: IntoItem(),
       ),

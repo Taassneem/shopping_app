@@ -19,61 +19,67 @@ class ScreenTwoViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
-            left: 20,
-            right: 20,
-          ),
-          child: Column(
+        Expanded(
+          child: ListView(
             children: [
-              const CustomAuthAppBar(),
-              const SizedBox(
-                height: 17,
-              ),
-              Text(
-                AppString.getStart,
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.281,
-              ),
-              const CustomContainer(
-                text: 'Facebook',
-                image: AppAssets.facebook,
-                color: AppColors.facebook,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const CustomContainer(
-                text: 'Google',
-                image: AppAssets.google,
-                color: AppColors.google,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.24,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppString.signIn,
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
-                  CustomTextButton(
-                    text: 'Sign In',
-                    color: AppColors.black,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignInView(),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                  left: 20,
+                  right: 20,
+                ),
+                child: Column(
+                  children: [
+                    const CustomAuthAppBar(),
+                    const SizedBox(
+                      height: 17,
+                    ),
+                    Text(
+                      AppString.getStart,
+                      style: Theme.of(context).textTheme.displayLarge,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.27,
+                    ),
+                    const CustomContainer(
+                      text: 'Facebook',
+                      image: AppAssets.facebook,
+                      color: AppColors.facebook,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const CustomContainer(
+                      text: 'Google',
+                      image: AppAssets.google,
+                      color: AppColors.google,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          AppString.signIn,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
-                      );
-                    },
-                  ),
-                ],
+                        CustomTextButton(
+                          text: 'Sign In',
+                          color: AppColors.black,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignInView(),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

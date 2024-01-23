@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
-import 'package:shopping_app/features/auth/presentation/views/new_password.dart';
-
+import 'package:shopping_app/core/utils/app_router.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_string.dart';
 import 'widgets/custom_auth_app_bar.dart';
@@ -13,11 +13,12 @@ class VerificationCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,8 +37,8 @@ class VerificationCodeView extends StatelessWidget {
                         AppString.verificationCode,
                         style: Theme.of(context).textTheme.displayLarge,
                       ),
-                      const SizedBox(
-                        height: 65,
+                      SizedBox(
+                        height: size * 0.04,
                       ),
                       Image.asset(AppAssets.password),
                       const SizedBox(
@@ -62,8 +63,8 @@ class VerificationCodeView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 100,
+                  SizedBox(
+                    height: size * 0.1,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -85,19 +86,14 @@ class VerificationCodeView extends StatelessWidget {
                 ],
               ),
             ),
-            CustomGesterDetector(
-              text: AppString.confirmCode,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NewPasswordView(),
-                  ),
-                );
-              },
-            )
-          ],
-        ),
+          ),
+          CustomGesterDetector(
+            text: AppString.confirmCode,
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.newPassView);
+            },
+          )
+        ],
       ),
     );
   }
