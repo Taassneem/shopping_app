@@ -8,13 +8,23 @@ class CategoriesViewBody extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: CustomCategoriesAppBar(),
-        ),
-        CategoriesGridView(),
-      ],
+    return const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: CustomScrollView(
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustomCategoriesAppBar(),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+          ),
+          CategoriesGridView(),
+        ],
+      ),
     );
   }
 }

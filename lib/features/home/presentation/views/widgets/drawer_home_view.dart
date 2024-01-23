@@ -16,7 +16,7 @@ class DrawerHomeView extends StatelessWidget {
         child: ListView(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.18,
         ),
         DrawerListTile(
           title: 'Dark Mode',

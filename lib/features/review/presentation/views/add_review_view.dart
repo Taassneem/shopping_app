@@ -7,7 +7,9 @@ class AddReviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: AddReviewViewBody(),
+      body: SafeArea(
+        child: AddReviewViewBody(),
+      ),
     );
   }
 }

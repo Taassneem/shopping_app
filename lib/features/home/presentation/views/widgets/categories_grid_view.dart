@@ -17,8 +17,8 @@ class CategoriesGridView extends StatelessWidget {
           return SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 20,
               childAspectRatio: .55,
             ),
             itemCount: state.products.length,

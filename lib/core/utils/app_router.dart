@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/utils/service_locator.dart';
 import 'package:shopping_app/features/auth/presentation/views/forget_pass_view.dart';
 import 'package:shopping_app/features/auth/presentation/views/new_password.dart';
 import 'package:shopping_app/features/auth/presentation/views/screen_two.dart';
@@ -10,6 +12,10 @@ import 'package:shopping_app/features/cart/presentation/views/address_view.dart'
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/order_confirmed_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
+import 'package:shopping_app/features/home/data/models/category_model.dart';
+import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
+import 'package:shopping_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 import 'package:shopping_app/features/home/presentation/views/categories_view.dart';
 import 'package:shopping_app/features/home/presentation/views/home_view.dart';
 import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
@@ -112,10 +118,17 @@ abstract class AppRouter {
         path: orederConfirmedView,
         builder: (context, state) => const OrderConfirmedView(),
       ),
-      // GoRoute(
-      //   path: categoriesView,
-      //   builder: (context, state) => const CategoriesView(),
-      // ),
+      GoRoute(
+        path: categoriesView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => FetchCategoriesCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
+          child: CategoriesView(
+            categoryModel: state.extra as CategoryModel,
+          ),
+        ),
+      ),
     ],
   );
 }

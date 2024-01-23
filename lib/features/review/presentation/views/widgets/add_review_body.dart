@@ -74,8 +74,11 @@ class AddReviewViewBody extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        const CustomGesterDetector(
+        CustomGesterDetector(
           text: 'Submit Review',
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
       ],
     );

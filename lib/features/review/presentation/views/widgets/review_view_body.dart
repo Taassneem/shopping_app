@@ -21,7 +21,7 @@ class ReviewViewBody extends StatelessWidget {
             text: 'Reviews',
           ),
           const SizedBox(
-            height: 35,
+            height: 25,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,8 +53,9 @@ class ReviewViewBody extends StatelessWidget {
                     ),
                   );
                 },
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: AppColors.orange),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.orange,
+                ),
                 child: Row(
                   children: [
                     Image.asset(
@@ -63,16 +64,21 @@ class ReviewViewBody extends StatelessWidget {
                       color: AppColors.white,
                     ),
                     const SizedBox(
-                      width: 5,
+                      width: 7,
                     ),
                     Text(
                       AppString.addReviews,
-                      style: Theme.of(context).textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: AppColors.white,
+                          ),
                     )
                   ],
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 20,
           ),
           const Expanded(
             child: ReviewListView(),

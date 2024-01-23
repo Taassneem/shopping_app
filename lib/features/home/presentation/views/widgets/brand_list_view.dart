@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/utils/app_router.dart';
 import 'package:shopping_app/core/utils/widget/custom_error_message.dart';
 import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 import 'package:shopping_app/features/home/presentation/views/widgets/brand_item.dart';
@@ -22,8 +24,16 @@ class BrandListView extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8.0),
-                    child: BrandItem(
-                      categoryModel: state.categories[index],
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(
+                          AppRouter.categoriesView,
+                          extra: state.categories[index],
+                        );
+                      },
+                      child: BrandItem(
+                        categoryModel: state.categories[index],
+                      ),
                     ),
                   );
                 },
@@ -37,11 +47,15 @@ class BrandListView extends StatelessWidget {
               errorMessage: state.errorMessage,
             ),
           );
-        } else {
+        } else if (state is FetchCategoriesLoading) {
           return const SliverToBoxAdapter(
             child: Center(
               child: CircularProgressIndicator(),
             ),
+          );
+        } else {
+          return const SliverToBoxAdapter(
+            child: Text('data'),
           );
         }
       },
