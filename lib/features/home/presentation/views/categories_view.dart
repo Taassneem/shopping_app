@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/features/home/data/models/category_model.dart';
-import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/home/presentation/views/widgets/categories_view_body.dart';
 
 import '../manager/fetch_categories_cubit/fetch_categories_cubit.dart';

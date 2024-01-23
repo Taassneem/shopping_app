@@ -13,7 +13,6 @@ import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/order_confirmed_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
 import 'package:shopping_app/features/home/data/models/category_model.dart';
-import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 import 'package:shopping_app/features/home/presentation/views/categories_view.dart';
@@ -98,10 +97,6 @@ abstract class AppRouter {
         path: addReviewView,
         builder: (context, state) => const AddReviewView(),
       ),
-      // GoRoute(
-      //   path: cartDetailsView,
-      //   builder: (context, state) => const CardDetailsView(),
-      // ),
       GoRoute(
         path: addressView,
         builder: (context, state) => const AddressView(),
