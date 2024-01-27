@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/core/utils/widget/custom_error_message.dart';
 import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 import 'package:shopping_app/features/home/presentation/views/widgets/brand_item.dart';
-
 
 class BrandListView extends StatelessWidget {
   const BrandListView({super.key});
@@ -15,9 +13,9 @@ class BrandListView extends StatelessWidget {
     return BlocBuilder<FetchCategoriesCubit, FetchCategoriesState>(
       builder: (context, state) {
         if (state is FetchCategoriesSuccess) {
-          return SizedBox(
-            height: 50,
-            child: SliverToBoxAdapter(
+          return SliverToBoxAdapter(
+            child: SizedBox(
+              height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: state.categories.length,
@@ -32,9 +30,8 @@ class BrandListView extends StatelessWidget {
               ),
             ),
           );
-        }  else if (state is FetchCategoriesFailure) {
-       
-          log(state.errorMessage);
+        } else if (state is FetchCategoriesFailure) {
+          
           return SliverToBoxAdapter(
             child: CustomErrorMessage(
               errorMessage: state.errorMessage,
@@ -46,7 +43,7 @@ class BrandListView extends StatelessWidget {
               child: CircularProgressIndicator(),
             ),
           );
-        } 
+        }
       },
     );
   }

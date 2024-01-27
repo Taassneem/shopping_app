@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
+import 'package:shopping_app/core/utils/app_router.dart';
 import 'package:shopping_app/features/home/data/models/category_model.dart';
 
 class BrandItem extends StatelessWidget {
@@ -11,7 +13,9 @@ class BrandItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.categoriesView, extra: categoryModel);
+      },
       child: Container(
         width: 115,
         height: 50,
@@ -21,7 +25,7 @@ class BrandItem extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            categoryModel.categories ,
+            categoryModel.categories,
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!

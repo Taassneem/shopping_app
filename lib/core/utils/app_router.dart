@@ -25,6 +25,7 @@ import '../../features/profile/presentation/views/profile_view.dart';
 import '../../features/review/presentation/views/add_review_view.dart';
 import '../../features/review/presentation/views/review_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
+
 abstract class AppRouter {
   static const String screenOne = '/screenOne';
   static const String screenTwo = '/screenTwo';
@@ -120,7 +121,6 @@ abstract class AppRouter {
         builder: (context, state) => const OrderConfirmedView(),
       ),
       GoRoute(
-
         path: allProductView,
         builder: (context, state) => const AllProductView(),
       ),
@@ -134,7 +134,6 @@ abstract class AppRouter {
             categoryModel: state.extra as CategoryModel,
           ),
         ),
-
       ),
     ],
   );
