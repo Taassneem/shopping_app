@@ -36,7 +36,9 @@ class CustomCategoriesAppBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             color: AppColors.lightGrey,
           ),
-          
+          child: Image.asset(
+            AppAssets.adidas,
+          ),
         ),
         Container(
           width: 50,

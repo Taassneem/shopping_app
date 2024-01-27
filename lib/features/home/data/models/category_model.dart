@@ -1,5 +1,7 @@
 class CategoryModel {
+
   final String categories;
+
 
   const CategoryModel({
     required this.categories,

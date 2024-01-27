@@ -10,22 +10,23 @@ class BrandItem extends StatelessWidget {
   final CategoryModel categoryModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 115,
-      height: 50,
-      decoration: BoxDecoration(
-        color: AppColors.lightGrey,
-        borderRadius: BorderRadius.circular(
-          10,
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: 115,
+        height: 50,
+        decoration: BoxDecoration(
+          color: AppColors.lightGrey,
+          borderRadius: BorderRadius.circular(10),
         ),
-      ),
-      child: Center(
-        child: Text(
-          categoryModel.categories,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                color: AppColors.black,
-              ),
+        child: Center(
+          child: Text(
+            categoryModel.categories ,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .copyWith(color: AppColors.black),
+          ),
         ),
       ),
     );

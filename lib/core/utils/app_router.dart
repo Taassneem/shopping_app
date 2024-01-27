@@ -13,18 +13,18 @@ import 'package:shopping_app/features/cart/presentation/views/address_view.dart'
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/order_confirmed_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/payment_view.dart';
-import 'package:shopping_app/features/home/data/models/category_model.dart';
-import 'package:shopping_app/features/home/data/repos/home_repo_impl.dart';
-import 'package:shopping_app/features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
-import 'package:shopping_app/features/home/presentation/views/all_products_view.dart';
-import 'package:shopping_app/features/home/presentation/views/categories_view.dart';
-import 'package:shopping_app/features/home/presentation/views/home_view.dart';
-import 'package:shopping_app/features/onBoarding/presentation/views/screen_one_view.dart';
-import 'package:shopping_app/features/profile/presentation/views/profile_view.dart';
-import 'package:shopping_app/features/review/presentation/views/add_review_view.dart';
-import 'package:shopping_app/features/review/presentation/views/review_view.dart';
-import 'package:shopping_app/features/splash/presentation/views/splash_view.dart';
 
+import '../../features/home/data/models/category_model.dart';
+import '../../features/home/data/repos/home_repo_impl.dart';
+import '../../features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
+import '../../features/home/presentation/views/all_products_view.dart';
+import '../../features/home/presentation/views/categories_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
+import '../../features/onBoarding/presentation/views/screen_one_view.dart';
+import '../../features/profile/presentation/views/profile_view.dart';
+import '../../features/review/presentation/views/add_review_view.dart';
+import '../../features/review/presentation/views/review_view.dart';
+import '../../features/splash/presentation/views/splash_view.dart';
 abstract class AppRouter {
   static const String screenOne = '/screenOne';
   static const String screenTwo = '/screenTwo';
@@ -120,6 +120,7 @@ abstract class AppRouter {
         builder: (context, state) => const OrderConfirmedView(),
       ),
       GoRoute(
+
         path: allProductView,
         builder: (context, state) => const AllProductView(),
       ),
@@ -133,6 +134,7 @@ abstract class AppRouter {
             categoryModel: state.extra as CategoryModel,
           ),
         ),
+
       ),
     ],
   );
