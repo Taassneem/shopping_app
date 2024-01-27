@@ -11,26 +11,28 @@ class AddNewCardViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              CustomAppBar(
-                text: 'Add New Card',
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              PaymentMethods(),
-              SizedBox(
-                height: 30,
-              ),
-              CardInfo()
-            ],
+        const Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                CustomAppBar(
+                  text: 'Add New Card',
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                PaymentMethods(),
+                SizedBox(
+                  height: 30,
+                ),
+                CardInfo()
+              ],
+            ),
           ),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * .272,
+          height: MediaQuery.of(context).size.height * .24,
         ),
         const CustomGesterDetector(
           text: 'Add Card',

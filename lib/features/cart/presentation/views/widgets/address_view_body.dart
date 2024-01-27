@@ -68,7 +68,7 @@ class AddressViewBody extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const CustomCupertinoSwitch(
+              const CustomButtonToSaveData(
                 text: 'Save as primary address',
               ),
             ],

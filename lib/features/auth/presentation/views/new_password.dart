@@ -4,7 +4,7 @@ import 'package:shopping_app/core/utils/app_router.dart';
 import '../../../../core/utils/app_string.dart';
 import 'widgets/custom_auth_app_bar.dart';
 import 'widgets/custom_gester_detector.dart';
-import 'widgets/custom_text_field.dart';
+import 'widgets/custom_text_field_pass.dart';
 
 class NewPasswordView extends StatelessWidget {
   const NewPasswordView({super.key});
@@ -41,16 +41,14 @@ class NewPasswordView extends StatelessWidget {
                   SizedBox(
                     height: size * 0.1,
                   ),
-                  const CustomTextField(
+                  const CustomTextFormFieldPass(
                     hint: 'Enter your password',
-                    labelText: AppString.password,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const CustomTextField(
+                  const CustomTextFormFieldPass(
                     hint: 'Confirm your password',
-                    labelText: AppString.confirmPass,
                   ),
                   SizedBox(
                     height: size * 0.375,

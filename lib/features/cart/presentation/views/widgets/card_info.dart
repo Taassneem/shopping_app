@@ -18,7 +18,7 @@ class CardInfo extends StatelessWidget {
         ),
         const TextWithTextField(
           textFieldName: 'Card Number',
-          hintText: '5478 4567 8743 4751',
+          hintText: '5478   4567  8743   4751',
         ),
         const SizedBox(
           height: 15,
@@ -39,7 +39,7 @@ class CardInfo extends StatelessWidget {
               width: MediaQuery.of(context).size.width * .42,
               child: const TextWithTextField(
                 textFieldName: 'CVV',
-                hintText: '1487',
+                hintText: '148',
               ),
             ),
           ],

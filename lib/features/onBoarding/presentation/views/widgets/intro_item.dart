@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/database/cache/cache_helper.dart';
+import 'package:shopping_app/core/utils/service_locator.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_text_button.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
@@ -16,13 +18,17 @@ class IntoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 250,
+      height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 16,
+        ),
         child: Column(
           children: [
             Text(
@@ -43,15 +49,21 @@ class IntoItem extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomIntroElevatedButton(
                   text: AppString.men,
                   color: AppColors.lightGrey,
                   horizontal: 20,
+                  onPressed: () {
+                    getIt
+                        .get<CacheHelper>()
+                        .saveData(key: 'OnBoardingVisited', value: true);
+                    GoRouter.of(context).push(AppRouter.screenTwo);
+                  },
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 30,
                 ),
                 CustomIntroElevatedButton(
@@ -59,6 +71,12 @@ class IntoItem extends StatelessWidget {
                   color: AppColors.primaryColor,
                   horizontal: 20,
                   textColor: AppColors.white,
+                  onPressed: () {
+                    getIt
+                        .get<CacheHelper>()
+                        .saveData(key: 'OnBoardingVisited', value: true);
+                    GoRouter.of(context).push(AppRouter.screenTwo);
+                  },
                 ),
               ],
             ),
@@ -67,6 +85,9 @@ class IntoItem extends StatelessWidget {
             ),
             CustomTextButton(
               onPressed: () {
+                getIt
+                    .get<CacheHelper>()
+                    .saveData(key: 'OnBoardingVisited', value: true);
                 GoRouter.of(context).push(AppRouter.screenTwo);
               },
               text: AppString.skip,

@@ -40,7 +40,7 @@ class PaymentViewBody extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                CustomCupertinoSwitch(
+                CustomButtonToSaveData(
                   text: 'Save Card Info',
                 )
               ],

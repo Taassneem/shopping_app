@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomCupertinoSwitch extends StatelessWidget {
-  const CustomCupertinoSwitch({
+import '../../../../auth/presentation/views/widgets/custom_cupertino_switch.dart';
+
+class CustomButtonToSaveData extends StatelessWidget {
+  const CustomButtonToSaveData({
     super.key,
     required this.text,
   });
@@ -16,10 +17,7 @@ class CustomCupertinoSwitch extends StatelessWidget {
           text,
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        CupertinoSwitch(
-          value: true,
-          onChanged: (value) {},
-        ),
+        const CustomCupertinoSwitch()
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/service_locator.dart';
+import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:shopping_app/features/auth/presentation/views/forget_pass_view.dart';
 import 'package:shopping_app/features/auth/presentation/views/new_password.dart';
 import 'package:shopping_app/features/auth/presentation/views/screen_two.dart';
@@ -77,7 +78,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: forgetPassView,
-        builder: (context, state) => const ForgetPasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const ForgetPasswordView(),
+        ),
       ),
       GoRoute(
         path: cartView,
