@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/function/custom_toast.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
-import 'package:shopping_app/core/utils/app_router.dart';
 import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import '../../../../../core/utils/app_string.dart';
 import 'custom_auth_app_bar.dart';
@@ -22,7 +21,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
       if (state is ResetPasswordSuccessState) {
         showToast('Check Your Email to reset your password');
-        GoRouter.of(context).push(AppRouter.signInView);
+        GoRouter.of(context).pop();
       } else if (state is ResetPasswordFailureState) {
         showToast(state.errorMessage);
       }

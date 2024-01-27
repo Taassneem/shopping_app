@@ -21,7 +21,7 @@ class ProfileViewBody extends StatelessWidget {
             children: [
               CircleAvatar(
                 child: Image.asset(
-                  AppAssets.review,
+                  AppAssets.model,
                 ),
               ),
               const SizedBox(
@@ -31,14 +31,14 @@ class ProfileViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Ronald Richards',
+                    'Tasneem Radwan',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    'ronaldrichard@gmail.com',
+                    'tasnemradwan87@gmail.com',
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ],

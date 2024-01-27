@@ -14,7 +14,8 @@ class BrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.categoriesView, extra: categoryModel);
+        GoRouter.of(context)
+            .push(AppRouter.categoriesView, extra: categoryModel);
       },
       child: Container(
         width: 115,
@@ -26,6 +27,7 @@ class BrandItem extends StatelessWidget {
         child: Center(
           child: Text(
             categoryModel.categories,
+            textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!

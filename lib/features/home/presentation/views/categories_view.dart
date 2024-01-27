@@ -7,10 +7,8 @@ import 'package:shopping_app/features/home/presentation/views/widgets/categories
 import '../manager/fetch_categories_cubit/fetch_categories_cubit.dart';
 
 class CategoriesView extends StatefulWidget {
-
   const CategoriesView({super.key, required this.categoryModel});
   final CategoryModel categoryModel;
-
 
   @override
   State<CategoriesView> createState() => _CategoriesViewState();
@@ -18,7 +16,6 @@ class CategoriesView extends StatefulWidget {
 
 class _CategoriesViewState extends State<CategoriesView> {
   @override
-
   void initState() {
     BlocProvider.of<FetchCategoriesCubit>(context)
         .fetchCategoryProducts(category: widget.categoryModel.categories);
@@ -27,9 +24,11 @@ class _CategoriesViewState extends State<CategoriesView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: CategoriesViewBody(),
+        child: CategoriesViewBody(
+          categoryModel: widget.categoryModel,
+        ),
       ),
     );
   }
