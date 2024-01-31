@@ -5,17 +5,16 @@ class CustomTextFormFieldPass extends StatefulWidget {
   const CustomTextFormFieldPass({
     super.key,
     required this.hint,
-    this.suffixIcon,
     this.controller,
     this.onChanged,
   });
   final String hint;
-  final Widget? suffixIcon;
   final TextEditingController? controller;
   final Function(String)? onChanged;
 
   @override
-  State<CustomTextFormFieldPass> createState() => _CustomTextFormFieldPassState();
+  State<CustomTextFormFieldPass> createState() =>
+      _CustomTextFormFieldPassState();
 }
 
 class _CustomTextFormFieldPassState extends State<CustomTextFormFieldPass> {
@@ -42,10 +41,11 @@ class _CustomTextFormFieldPassState extends State<CustomTextFormFieldPass> {
         ),
         suffixIcon: IconButton(
             onPressed: () {
-              obscureText = false;
-              setState(() {});
+              setState(() {
+                obscureText = !obscureText;
+              });
             },
-            icon: obscureText == false
+            icon: obscureText
                 ? const Icon(Icons.remove_red_eye_outlined)
                 : const Icon(Icons.visibility_off_outlined)),
         focusedBorder: UnderlineInputBorder(
