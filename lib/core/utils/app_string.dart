@@ -16,12 +16,10 @@ class AppString {
   static const welcome = "welcome";
   static const welcomeSubTitle = "welcomeSubTitle";
   static const forgetPass = "forgetPass";
-  static const agree =
-      "agree";
+  static const agree = "agree";
   static const terms = "terms";
   static const login = "login";
-  static const confirmMailQoute =
-      "confirmMailQoute";
+  static const confirmMailQoute = "confirmMailQoute";
   static const confirmEmail = "confirmEmail";
   static const confirmCode = "confirmCode";
   static const verificationCode = "verificationCode";
@@ -47,6 +45,4 @@ class AppString {
   static const addReviews = "addReviews";
   static const totalPrice = "totalPrice";
   static const deliveryAddress = "deliveryAddress";
-
-  
 }

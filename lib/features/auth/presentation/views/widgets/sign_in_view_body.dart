@@ -28,7 +28,7 @@ class SignInViewBody extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
       if (state is SignInSuccessState) {
         FirebaseAuth.instance.currentUser!.emailVerified
-            ? GoRouter.of(context).pushReplacement(AppRouter.homeView)
+            ? GoRouter.of(context).pushReplacement(AppRouter.baseView)
             : showToast(s.pleaseVerifyYourAccount);
       } else if (state is SignInFailureState) {
         showToast(state.errorMessage);

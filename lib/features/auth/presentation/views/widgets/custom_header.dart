@@ -6,7 +6,6 @@ class CustomHeader extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);

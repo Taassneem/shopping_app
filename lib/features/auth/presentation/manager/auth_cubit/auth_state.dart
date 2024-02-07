@@ -1,4 +1,5 @@
 part of 'auth_cubit.dart';
+
 sealed class AuthState extends Equatable {
   const AuthState();
   @override
@@ -13,7 +14,7 @@ final class SignUpSuccessState extends AuthState {}
 
 final class SignUpFailureState extends AuthState {
   final String errorMessage;
-  
+
   const SignUpFailureState({required this.errorMessage});
 }
 
@@ -25,8 +26,8 @@ final class SignInFailureState extends AuthState {
   final String errorMessage;
 
   const SignInFailureState({required this.errorMessage});
-
 }
+
 final class ResetPasswordLoadingState extends AuthState {}
 
 final class ResetPasswordSuccessState extends AuthState {}
@@ -35,6 +36,4 @@ final class ResetPasswordFailureState extends AuthState {
   final String errorMessage;
 
   const ResetPasswordFailureState({required this.errorMessage});
-
 }
-

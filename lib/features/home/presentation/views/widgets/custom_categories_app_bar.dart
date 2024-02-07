@@ -8,9 +8,10 @@ import '../../../data/models/category_model.dart';
 
 class CustomCategoriesAppBar extends StatelessWidget {
   const CustomCategoriesAppBar({
-    super.key, required this.categoryModel,
+    super.key,
+    required this.categoryModel,
   });
-    final CategoryModel categoryModel;
+  final CategoryModel categoryModel;
 
   @override
   Widget build(BuildContext context) {

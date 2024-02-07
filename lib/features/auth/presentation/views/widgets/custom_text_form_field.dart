@@ -31,7 +31,6 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: TextStyle(
           color: AppColors.darkGrey.withOpacity(0.4),
         ),
-        
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.darkGrey.withOpacity(0.4),

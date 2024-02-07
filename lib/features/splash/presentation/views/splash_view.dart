@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
       FirebaseAuth.instance.currentUser == null
           ? Navigate(path: AppRouter.screenTwo)
           : FirebaseAuth.instance.currentUser!.emailVerified == true
-              ? Navigate(path: AppRouter.homeView)
+              ? Navigate(path: AppRouter.baseView)
               : Navigate(path: AppRouter.signInView);
     } else {
       Navigate(path: AppRouter.screenOne);

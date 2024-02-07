@@ -6,6 +6,7 @@ import 'package:shopping_app/features/auth/presentation/views/forget_pass_view.d
 import 'package:shopping_app/features/auth/presentation/views/screen_two.dart';
 import 'package:shopping_app/features/auth/presentation/views/sing_in_view.dart';
 import 'package:shopping_app/features/auth/presentation/views/sing_up_view.dart';
+import 'package:shopping_app/features/base/base.dart';
 import 'package:shopping_app/features/cart/presentation/views/add_new_card_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/address_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
@@ -30,6 +31,7 @@ abstract class AppRouter {
   static const String signInView = '/signInView';
   static const String signUpView = '/signUpView';
   static const String forgetPassView = '/forgetPassView';
+  static const String baseView = '/baseView';
   static const String homeView = '/homeView';
   static const String detailsCartView = '/detailsCartView';
   static const String addReviewView = '/addReviewView';
@@ -79,6 +81,10 @@ abstract class AppRouter {
       GoRoute(
         path: profileView,
         builder: (context, state) => const ProfileView(),
+      ),
+      GoRoute(
+        path: baseView,
+        builder: (context, state) => const BaseView(),
       ),
       GoRoute(
         path: homeView,

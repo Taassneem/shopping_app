@@ -4,7 +4,8 @@ import 'package:shopping_app/core/utils/app_color.dart';
 class SizeCard extends StatelessWidget {
   const SizeCard({
     super.key,
-    required this.size, this.onTap,
+    required this.size,
+    this.onTap,
   });
   final String size;
   final Function()? onTap;

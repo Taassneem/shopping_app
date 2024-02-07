@@ -6,7 +6,8 @@ class CustomIntroElevatedButton extends StatelessWidget {
     required this.text,
     this.color,
     this.textColor,
-    this.onPressed, required this.horizontal,
+    this.onPressed,
+    required this.horizontal,
   });
   final String text;
   final Color? color;
@@ -22,8 +23,7 @@ class CustomIntroElevatedButton extends StatelessWidget {
           .style!
           .copyWith(backgroundColor: MaterialStateProperty.all(color)),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: 12, horizontal: horizontal),
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: horizontal),
         child: Text(
           text,
           style: Theme.of(context)

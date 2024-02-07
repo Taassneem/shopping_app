@@ -8,5 +8,7 @@ sealed class GlobalState extends Equatable {
 }
 
 final class GlobalInitial extends GlobalState {}
+
 final class ChangeLanguageLoading extends GlobalState {}
+
 final class ChangeLanguageSuccess extends GlobalState {}

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/generated/l10n.dart';
 
-BottomNavigationBar bottomNavigationBar(Function(int)? onTap, int currentIndex,context) {
+BottomNavigationBar bottomNavigationBar(
+    Function(int)? onTap, int currentIndex, context) {
   return BottomNavigationBar(
     currentIndex: currentIndex,
     onTap: onTap,
@@ -17,7 +18,6 @@ BottomNavigationBar bottomNavigationBar(Function(int)? onTap, int currentIndex,c
         ),
         label: S.of(context).home,
       ),
-      
       BottomNavigationBarItem(
         icon: Visibility(
           visible: currentIndex != 1,
