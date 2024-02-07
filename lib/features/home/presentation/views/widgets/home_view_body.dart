@@ -40,49 +40,56 @@ class HomeViewBody extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const GreatingCustomer(),
-                  ViewAllScreen(
-                    viewName: S.of(context).chooseBrand,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                ],
+        child: RefreshIndicator(
+          onRefresh: refresh,
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const GreatingCustomer(),
+                    ViewAllScreen(
+                      viewName: S.of(context).chooseBrand,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const BrandListView(),
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  ViewAllScreen(
-                    viewName: S.of(context).newArrivals,
-                    onPressed: () {
-                      GoRouter.of(context).push(
-                        AppRouter.allProductView,
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                ],
+              const BrandListView(),
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    ViewAllScreen(
+                      viewName: S.of(context).newArrivals,
+                      onPressed: () {
+                        GoRouter.of(context).push(
+                          AppRouter.allProductView,
+                        );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const CardGridView(),
-          ],
+              const CardGridView(),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Future<void> refresh() {
+    return Future.delayed(const Duration(seconds: 2));
   }
 }
