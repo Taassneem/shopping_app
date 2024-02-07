@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
+import 'package:shopping_app/generated/l10n.dart';
 
 import '../../../../../core/utils/app_color.dart';
-import '../../../../../core/utils/app_string.dart';
 import '../sing_up_view.dart';
-import 'custom_auth_app_bar.dart';
 import 'custom_container.dart';
 import 'custom_gester_detector.dart';
 import 'custom_text_button.dart';
@@ -18,6 +17,7 @@ class ScreenTwoViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Expanded(
@@ -29,16 +29,15 @@ class ScreenTwoViewBody extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const CustomAuthAppBar(),
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: size * 0.1,
                 ),
                 Text(
-                  AppString.getStart,
+                  S.of(context).letsGetStarted,
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.27,
+                  height: size * 0.27,
                 ),
                 const CustomContainer(
                   text: 'Facebook',
@@ -54,17 +53,17 @@ class ScreenTwoViewBody extends StatelessWidget {
                   color: AppColors.google,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  height: size * 0.2,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      AppString.signIn,
+                      S.of(context).alreadyHaveAccount,
                       style: Theme.of(context).textTheme.displayMedium,
                     ),
                     CustomTextButton(
-                      text: 'Sign In',
+                      text: S.of(context).signIn,
                       color: AppColors.black,
                       onPressed: () {
                         GoRouter.of(context).push(AppRouter.signInView);
@@ -77,7 +76,7 @@ class ScreenTwoViewBody extends StatelessWidget {
           ),
         ),
         CustomGesterDetector(
-          text: AppString.creatAccuont,
+          text: S.of(context).creatAccuont,
           onTap: () {
             Navigator.push(
               context,

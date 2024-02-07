@@ -3,11 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/utils/service_locator.dart';
 import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:shopping_app/features/auth/presentation/views/forget_pass_view.dart';
-import 'package:shopping_app/features/auth/presentation/views/new_password.dart';
 import 'package:shopping_app/features/auth/presentation/views/screen_two.dart';
 import 'package:shopping_app/features/auth/presentation/views/sing_in_view.dart';
 import 'package:shopping_app/features/auth/presentation/views/sing_up_view.dart';
-import 'package:shopping_app/features/auth/presentation/views/verification_code_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/add_new_card_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/address_view.dart';
 import 'package:shopping_app/features/cart/presentation/views/cart_view.dart';
@@ -32,8 +30,6 @@ abstract class AppRouter {
   static const String signInView = '/signInView';
   static const String signUpView = '/signUpView';
   static const String forgetPassView = '/forgetPassView';
-  static const String newPassView = '/newPassView';
-  static const String verificationCodeView = '/verificationCodeView';
   static const String homeView = '/homeView';
   static const String detailsCartView = '/detailsCartView';
   static const String addReviewView = '/addReviewView';
@@ -68,14 +64,6 @@ abstract class AppRouter {
       GoRoute(
         path: signUpView,
         builder: (context, state) => const SignUpView(),
-      ),
-      GoRoute(
-        path: verificationCodeView,
-        builder: (context, state) => const VerificationCodeView(),
-      ),
-      GoRoute(
-        path: newPassView,
-        builder: (context, state) => const NewPasswordView(),
       ),
       GoRoute(
         path: forgetPassView,

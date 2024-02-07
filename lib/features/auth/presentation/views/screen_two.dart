@@ -7,9 +7,7 @@ class ScreenTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(
-        child: ScreenTwoViewBody(),
-      ),
+      body: SafeArea(child: ScreenTwoViewBody()),
     );
   }
 }

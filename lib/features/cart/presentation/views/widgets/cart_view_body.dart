@@ -4,7 +4,7 @@ import 'package:shopping_app/features/auth/presentation/views/widgets/custom_ges
 import 'package:shopping_app/features/review/presentation/views/widgets/custom_app_bar_review.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
-import 'package:shopping_app/core/utils/app_string.dart';
+import 'package:shopping_app/generated/l10n.dart';
 
 import 'card_add_in_cart.dart';
 import 'cost.dart';
@@ -15,6 +15,7 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -24,18 +25,12 @@ class CartViewBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomAppBar(
-                    text: 'Cart',
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
+                  CustomAppBar(text: s.cart),
+                  const SizedBox(height: 25),
                   const CardAddInCart(),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   AddressInfo(
-                    text: AppString.deliveryAddress,
+                    text: s.deliveryAddress,
                     title: 'Chhatak, Sunamgonj 12/8AB',
                     image: AppAssets.map,
                     subTitle: 'Sylhet',
@@ -49,32 +44,26 @@ class CartViewBody extends StatelessWidget {
                     },
                     title: 'Visa Classic',
                     image: AppAssets.visa,
-                    text: 'Payment Method',
+                    text: s.paymentMethod,
                     subTitle: '**** 7690',
                   ),
                   Text(
-                    'Order Info',
+                    s.orderInfo,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Cost(
-                    text: 'Subtotal',
+                  const SizedBox(height: 15),
+                  Cost(
+                    text: s.subtotal,
                     price: r'$110',
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Cost(
-                    text: 'Shipping cost',
+                  const SizedBox(height: 10),
+                  Cost(
+                    text: s.shippingCost,
                     price: r'$10',
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Cost(
-                    text: 'Total',
+                  const SizedBox(height: 10),
+                  Cost(
+                    text: s.total,
                     price: r'$120',
                   )
                 ],
@@ -84,7 +73,7 @@ class CartViewBody extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .02,
             ),
             CustomGesterDetector(
-              text: 'checkout',
+              text: s.checkout,
               onTap: () {
                 GoRouter.of(context).push(AppRouter.orederConfirmedView);
               },

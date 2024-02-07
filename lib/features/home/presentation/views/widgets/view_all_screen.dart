@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
-import 'package:shopping_app/core/utils/app_string.dart';
+import 'package:shopping_app/generated/l10n.dart';
 
 class ViewAllScreen extends StatelessWidget {
   const ViewAllScreen({
     super.key,
-    required this.viewName, this.onPressed,
+    required this.viewName,
+    this.onPressed,
   });
   final String viewName;
   final void Function()? onPressed;
@@ -23,7 +24,7 @@ class ViewAllScreen extends StatelessWidget {
         TextButton(
           onPressed: onPressed,
           child: Text(
-            AppString.viewAll,
+            S.of(context).viewAll,
             style: Theme.of(context).textTheme.displaySmall,
           ),
         ),

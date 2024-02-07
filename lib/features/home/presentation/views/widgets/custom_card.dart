@@ -40,15 +40,17 @@ class CustomCard extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 5),
           Text(
             productModel.title ?? '',
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context)
                 .textTheme
-                .displaySmall!
+                .titleSmall!
                 .copyWith(color: AppColors.black),
           ),
+          const SizedBox(height: 5),
           Text(
             r'$' '${productModel.price}',
             style: Theme.of(context)

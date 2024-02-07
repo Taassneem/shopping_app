@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
-import 'package:shopping_app/core/utils/app_string.dart';
+import 'package:shopping_app/generated/l10n.dart';
 
 import 'search_text_field.dart';
 
@@ -15,14 +15,14 @@ class GreatingCustomer extends StatelessWidget {
     return Column(
       children: [
         Text(
-          AppString.hello,
+          S.of(context).hello,
           style: Theme.of(context).textTheme.displayLarge,
         ),
         const SizedBox(
           height: 5,
         ),
         Text(
-          AppString.welcomeToLaza,
+          S.of(context).welcomeToLaza,
           style: Theme.of(context).textTheme.displaySmall,
         ),
         const SizedBox(

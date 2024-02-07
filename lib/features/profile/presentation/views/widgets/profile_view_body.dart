@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/bloc/cubit/global_cubit.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
+import 'package:shopping_app/generated/l10n.dart';
+import 'package:intl/intl.dart';
 
 import 'profile_info.dart';
 
@@ -10,6 +14,7 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return Padding(
       padding: const EdgeInsets.all(25.0),
       child: Column(
@@ -19,11 +24,6 @@ class ProfileViewBody extends StatelessWidget {
           ),
           Row(
             children: [
-              CircleAvatar(
-                child: Image.asset(
-                  AppAssets.model,
-                ),
-              ),
               const SizedBox(
                 width: 10,
               ),
@@ -50,38 +50,56 @@ class ProfileViewBody extends StatelessWidget {
           ),
           ProfileListTile(
             leading: Image.asset(AppAssets.bag),
-            title: 'Order',
+            title: s.order,
             onTap: () {
               GoRouter.of(context).push(AppRouter.cartView);
             },
           ),
           ProfileListTile(
-            title: 'My Cards',
+            title: s.myCards,
             leading: Image.asset(AppAssets.wallet),
             onTap: () {
               GoRouter.of(context).push(AppRouter.paymentView);
             },
           ),
-          const ProfileListTile(
-            title: 'Setting',
-            leading: Icon(
+          ProfileListTile(
+            title: s.setting,
+            leading: const Icon(
               Icons.settings,
             ),
           ),
-          const ProfileListTile(
-            title: 'About',
-            leading: Icon(
+          ProfileListTile(
+            title: s.about,
+            leading: const Icon(
               Icons.error_outline,
             ),
           ),
-          const ProfileListTile(
-            title: 'Help',
-            leading: Icon(
+          ProfileListTile(
+            title: s.help,
+            leading: const Icon(
               Icons.help_outline,
             ),
+          ),
+          BlocBuilder<GlobalCubit, GlobalState>(
+            builder: (context, state) {
+              return ProfileListTile(
+                title: isArabic() ? 'الانجليزيه' : 'Arabic',
+                onTap: () {
+                  BlocProvider.of<GlobalCubit>(context).changeLang();
+                },
+                leading: Image.asset(
+                  AppAssets.arabic,
+                  height: 28,
+                ),
+              );
+            },
           ),
         ],
       ),
     );
   }
+}
+
+bool isArabic() {
+  return Intl.getCurrentLocale() == 'ar';
 }

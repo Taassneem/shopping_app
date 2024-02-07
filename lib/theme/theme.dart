@@ -19,12 +19,12 @@ ThemeData getThemeData() {
         fontWeight: FontWeight.bold,
       ),
       displayMedium: GoogleFonts.lato(
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: FontWeight.w600,
         color: AppColors.darkGrey,
       ),
       displaySmall: GoogleFonts.lato(
-        fontSize: 16,
+        fontSize: 15,
         color: AppColors.darkGrey,
       ),
       bodyMedium: GoogleFonts.lato(
@@ -32,14 +32,14 @@ ThemeData getThemeData() {
       ),
       bodySmall: GoogleFonts.lato(
         fontSize: 18,
-        fontWeight: FontWeight.w600,
+        // fontWeight: FontWeight.w600,
       ),
       titleMedium: GoogleFonts.lato(
         fontSize: 18,
         fontWeight: FontWeight.w600,
       ),
       titleSmall: GoogleFonts.lato(
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: FontWeight.w500,
       ),
     ),

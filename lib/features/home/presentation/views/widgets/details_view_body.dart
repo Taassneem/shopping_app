@@ -5,9 +5,9 @@ import 'package:shopping_app/features/auth/presentation/views/widgets/rich_text.
 import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/review/presentation/views/review_view.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
-import 'package:shopping_app/core/utils/app_string.dart';
+import 'package:shopping_app/generated/l10n.dart';
 
-import 'review_info.dart';
+// import 'review_info.dart';
 import 'size_card.dart';
 import 'product_image.dart';
 import 'total_price.dart';
@@ -17,6 +17,7 @@ class CardDetailsBody extends StatelessWidget {
   final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
@@ -50,7 +51,7 @@ class CardDetailsBody extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 14.0),
                       child: Text(
-                        'Price',
+                        s.price,
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                     )
@@ -86,49 +87,11 @@ class CardDetailsBody extends StatelessWidget {
                 const SizedBox(
                   height: 21,
                 ),
-                // Row(
-                //   children: [
-                //     Image.asset(
-                //       AppAssets.model2,
-                //     ),
-                //     const SizedBox(
-                //       width: 10,
-                //     ),
-                //     Image.asset(
-                //       AppAssets.model3,
-                //     ),
-                //     const SizedBox(
-                //       width: 10,
-                //     ),
-                //     Image.asset(
-                //       AppAssets.model4,
-                //     ),
-                //     const SizedBox(
-                //       width: 10,
-                //     ),
-                //     Image.asset(
-                //       AppAssets.model5,
-                //     ),
-                //   ],
-                // ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Size',
-                      style:
-                          Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: AppColors.black,
-                              ),
-                    ),
-                    Text(
-                      'Size Guide',
-                      style: Theme.of(context).textTheme.displayMedium,
-                    )
-                  ],
+                Text(
+                  s.size,
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                        color: AppColors.black,
+                      ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -157,7 +120,7 @@ class CardDetailsBody extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  AppString.description,
+                  s.description,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: AppColors.black,
                       ),
@@ -167,7 +130,7 @@ class CardDetailsBody extends StatelessWidget {
                 ),
                 Richtext(
                   text: productModel.description ?? '',
-                  textButton: ' Read More..',
+                  textButton: ' ${s.readMore}..',
                 ),
                 const SizedBox(
                   height: 10,
@@ -176,14 +139,14 @@ class CardDetailsBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppString.reviews,
+                      s.reviews,
                       style:
                           Theme.of(context).textTheme.displayMedium!.copyWith(
                                 color: AppColors.black,
                               ),
                     ),
                     CustomTextButton(
-                      text: AppString.viewAll,
+                      text: s.viewAll,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -195,13 +158,9 @@ class CardDetailsBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const ReviewInfo(),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 10),
+                // const ReviewInfo(),
+                // const SizedBox(height: 20),
                 TotalPrice(
                   productModel: productModel,
                 ),
@@ -211,7 +170,7 @@ class CardDetailsBody extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const CustomGesterDetector(text: 'Add to cart')
+          CustomGesterDetector(text: s.addToCart)
         ],
       ),
     );

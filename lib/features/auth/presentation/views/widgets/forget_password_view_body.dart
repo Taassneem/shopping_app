@@ -4,8 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/function/custom_toast.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
-import '../../../../../core/utils/app_string.dart';
-import 'custom_auth_app_bar.dart';
+import 'package:shopping_app/generated/l10n.dart';
 import 'custom_gester_detector.dart';
 import 'custom_text_form_field.dart';
 
@@ -18,9 +17,10 @@ class ForgetPasswordViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
     var size = MediaQuery.of(context).size.height;
+    var s = S.of(context);
     return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
       if (state is ResetPasswordSuccessState) {
-        showToast('Check Your Email to reset your password');
+        showToast(s.checkYourEmail);
         GoRouter.of(context).pop();
       } else if (state is ResetPasswordFailureState) {
         showToast(state.errorMessage);
@@ -37,30 +37,27 @@ class ForgetPasswordViewBody extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 20),
-                        const CustomAuthAppBar(),
-                        const SizedBox(height: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              AppString.forgetPass,
+                              s.forgetPass,
                               style: Theme.of(context).textTheme.displayLarge,
                             ),
-                            SizedBox(height: size * 0.08),
+                            SizedBox(height: size * 0.032),
                             Image.asset(AppAssets.password),
                             const SizedBox(height: 50),
                           ],
                         ),
                         CustomTextFormField(
-                          hint: 'Enter your email address',
+                          hint: s.enterEmail,
                           onChanged: (value) {
                             authCubit.emailAddress = value;
                           },
                         ),
                         SizedBox(height: size * 0.17),
                         Text(
-                          AppString.confirmMailQoute,
+                          s.confirmMailQoute,
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
@@ -71,7 +68,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                   state is ResetPasswordLoadingState
                       ? const CircularProgressIndicator()
                       : CustomGesterDetector(
-                          text: AppString.confirmEmail,
+                          text: s.confirmEmail,
                           onTap: () {
                             if (authCubit.resetPasswordKey.currentState!
                                 .validate()) {

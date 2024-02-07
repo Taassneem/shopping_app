@@ -42,4 +42,5 @@ class AppAssets {
   static const String sort = '${basePath}sort.png';
   static const String wallet = '${basePath}Wallet.png';
   static const String orderConfirmed = '${basePath}order_confirmed.png';
+  static const String arabic = '${basePath}arabic.png';
 }

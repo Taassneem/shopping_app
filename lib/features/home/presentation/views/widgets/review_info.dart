@@ -27,7 +27,7 @@ class ReviewInfo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Ronald Richards',
+                  'Tasneem',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(
@@ -44,7 +44,7 @@ class ReviewInfo extends StatelessWidget {
                       width: 5,
                     ),
                     Text(
-                      '13 Sep, 2020',
+                      '13 feb, 2024',
                       style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ],

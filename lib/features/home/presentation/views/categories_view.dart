@@ -25,11 +25,7 @@ class _CategoriesViewState extends State<CategoriesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CategoriesViewBody(
-          categoryModel: widget.categoryModel,
-        ),
-      ),
-    );
+        body: SafeArea(
+            child: CategoriesViewBody(categoryModel: widget.categoryModel)));
   }
 }

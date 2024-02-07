@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
+import 'package:intl/intl.dart';
 
 class CustomAuthAppBar extends StatelessWidget {
   const CustomAuthAppBar({
@@ -8,11 +9,10 @@ class CustomAuthAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
+    return Padding(
+      padding: EdgeInsets.only(
+          left: isArabic() ? 0 : 16, right: isArabic() ? 16 : 0),
       child: Container(
-        width: 50,
-        height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: AppColors.lightGrey,
@@ -26,4 +26,8 @@ class CustomAuthAppBar extends StatelessWidget {
       ),
     );
   }
+}
+
+bool isArabic() {
+  return Intl.getCurrentLocale() == 'ar';
 }

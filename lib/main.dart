@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/function/check_state_changes.dart';
 import 'package:shopping_app/core/utils/service_locator.dart';
-import 'package:shopping_app/simple_bloc_observer.dart';
+import 'package:shopping_app/core/bloc/simple_bloc_observer.dart';
 import 'app/shopping_app.dart';
 import 'firebase_options.dart';
 

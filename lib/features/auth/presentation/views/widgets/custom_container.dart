@@ -13,31 +13,36 @@ class CustomContainer extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: color,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            image,
-            height: 30,
-            color: AppColors.white,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(
-            text,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: AppColors.white,
-                ),
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        
+      },
+      child: Container(
+        height: 50,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: color,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              image,
+              height: 30,
+              color: AppColors.white,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              text,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: AppColors.white,
+                  ),
+            )
+          ],
+        ),
       ),
     );
   }

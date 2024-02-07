@@ -25,7 +25,7 @@ class Richtext extends StatelessWidget {
             text: text,
           ),
           TextSpan(
-            text: textButton,
+            text: ' $textButton',
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!

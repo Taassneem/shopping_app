@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/custom_auth_app_bar.dart';
 import 'widgets/forget_password_view_body.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -6,8 +7,11 @@ class ForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ForgetPasswordViewBody(),
-    );
+    return Scaffold(
+        appBar: AppBar(leading: const CustomAuthAppBar(),
+          leadingWidth: 70,
+          surfaceTintColor: Colors.white,
+        ),
+        body: const SafeArea(child: ForgetPasswordViewBody()));
   }
 }
