@@ -16,14 +16,6 @@ class CardDetailsView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          // flexibleSpace: ClipRect(
-          //   child: BackdropFilter(
-          //     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          //     child: Container(
-          //       color: Colors.transparent,
-          //     ),
-          //   ),
-          // ),
           leading: const CustomAuthAppBar(),
           leadingWidth: 70,
           actions: [

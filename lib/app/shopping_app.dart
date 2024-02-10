@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shopping_app/core/bloc/cubit/global_cubit.dart';
 import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:shopping_app/features/cart/presentation/manager/add_to_card_cubit/add_to_card_cubit.dart';
 import 'package:shopping_app/generated/l10n.dart';
 import '../features/home/data/repos/home_repo_impl.dart';
 import '../features/home/presentation/manager/fetch_categories_cubit/fetch_categories_cubit.dart';
@@ -34,6 +35,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(),
         ),
+        BlocProvider(
+          create: (context) => AddToCardCubit(),
+          
+        )
       ],
       child: BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) {

@@ -64,7 +64,7 @@ class IntoItem extends StatelessWidget {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
                         getIt
                             .get<CacheHelper>()
-                            .saveData(key: 'OnBoardingVisited', value: true);
+                            .saveData(key: 'IsEnglish', value: true);
                       },
                     ),
                     const SizedBox(
@@ -79,7 +79,7 @@ class IntoItem extends StatelessWidget {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
                         getIt
                             .get<CacheHelper>()
-                            .saveData(key: 'OnBoardingVisited', value: true);
+                            .saveData(key: 'IsArabic', value: true);
                       },
                     ),
                   ],

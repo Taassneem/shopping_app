@@ -77,24 +77,4 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
   
-  @override
-  Future<Either<Failure, List<ProductModel>>> addToCart({required int id}) async{
-    try {
-      var data = await apiService.get(endPoint: 'products/$id');
-      List<ProductModel> products = [];
-      for (int i = 0; i < data.length; i++) {
-        products.add(ProductModel.fromJson(data[i]));
-      }
-      return right(products);
-    } catch (e) {
-      if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
-      }
-      return left(
-        ServerFailure(
-          e.toString(),
-        ),
-      );
-    }
-  }
 }

@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_app/core/utils/app_assets.dart';
+import 'package:shopping_app/core/utils/widget/custom_loading_indicator.dart';
+import 'package:shopping_app/features/cart/data/model/card_model.dart';
+
+import 'add_or_delete_item.dart';
 
 class CardAddInCart extends StatelessWidget {
   const CardAddInCart({
     super.key,
+    required this.cardModel,
   });
-
+  final CardModel cardModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,13 +19,13 @@ class CardAddInCart extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 4 / 5,
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(AppAssets.model),
-                ),
+            child: CachedNetworkImage(
+              imageUrl: cardModel.image,
+              fit: BoxFit.fill,
+              errorWidget: (context, url, error) => const Icon(
+                Icons.error_outline,
               ),
+              placeholder: (context, url) => const CustomLoadingIndicator(),
             ),
           ),
           const SizedBox(
@@ -32,7 +37,7 @@ class CardAddInCart extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Text(
-                  'Men\'s Tie-Dye T-Shirt Nike Sportswear',
+                  cardModel.title,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
@@ -41,42 +46,14 @@ class CardAddInCart extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                r'$45 (-$4.00 Tax)',
+                r'$' '${cardModel.price}',
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.keyboard_arrow_down_outlined,
-                    ),
-                  ),
-                  Text(
-                    '1',
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.keyboard_arrow_up_outlined,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .18,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Image.asset(
-                      AppAssets.delete,
-                      height: 20,
-                      width: 20,
-                    ),
-                  ),
-                ],
+              AddOrDeleteItem(
+                cardModel: cardModel,
               )
             ],
           )

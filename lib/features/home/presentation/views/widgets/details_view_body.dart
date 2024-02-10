@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/core/function/custom_toast.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_gester_detector.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_text_button.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/rich_text.dart';
+import 'package:shopping_app/features/cart/data/model/card_model.dart';
+import 'package:shopping_app/features/cart/presentation/manager/add_to_card_cubit/add_to_card_cubit.dart';
 import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/review/presentation/views/review_view.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
@@ -57,9 +61,7 @@ class CardDetailsBody extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -84,57 +86,37 @@ class CardDetailsBody extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 21,
-                ),
+                const SizedBox(height: 21),
                 Text(
                   s.size,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: AppColors.black,
                       ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizeCard(
-                      size: 'S',
-                    ),
-                    SizeCard(
-                      size: 'M',
-                    ),
-                    SizeCard(
-                      size: 'L',
-                    ),
-                    SizeCard(
-                      size: 'XL',
-                    ),
-                    SizeCard(
-                      size: '2XL',
-                    ),
+                    SizeCard(size: 'S'),
+                    SizeCard(size: 'M'),
+                    SizeCard(size: 'L'),
+                    SizeCard(size: 'XL'),
+                    SizeCard(size: '2XL'),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 Text(
                   s.description,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: AppColors.black,
                       ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Richtext(
                   text: productModel.description ?? '',
                   textButton: ' ${s.readMore}..',
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -167,10 +149,31 @@ class CardDetailsBody extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          CustomGesterDetector(text: s.addToCart)
+          const SizedBox(height: 20),
+          BlocConsumer<AddToCardCubit, AddToCardState>(
+            listener: (context, state) {
+              if (state is AddToCardSuccess) {
+                showToast('Add To Cart Successfully ');
+              } else if (state is AddToCardFailure) {
+                showToast('there is a failure ${state.errorMessage}');
+              }
+            },
+            builder: (context, state) {
+              return state is AddToCardLoading
+                  ? const CircularProgressIndicator()
+                  : CustomGesterDetector(
+                      text: s.addToCart,
+                      onTap: () {
+                        var cardModel = CardModel(
+                            image: productModel.image!,
+                            title: productModel.title!,
+                            price: productModel.price!);
+                        BlocProvider.of<AddToCardCubit>(context)
+                            .addToCart(cardModel);
+                      },
+                    );
+            },
+          )
         ],
       ),
     );
