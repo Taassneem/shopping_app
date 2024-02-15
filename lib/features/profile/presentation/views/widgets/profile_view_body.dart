@@ -5,7 +5,7 @@ import 'package:shopping_app/core/bloc/cubit/global_cubit.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
-import 'package:shopping_app/core/utils/service_locator.dart';
+import 'package:shopping_app/core/services/service_locator.dart';
 import 'package:shopping_app/generated/l10n.dart';
 import 'package:intl/intl.dart';
 

@@ -18,7 +18,6 @@ class _CartViewState extends State<CartView> {
     BlocProvider.of<AddToCardCubit>(context).fetchAllCards();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

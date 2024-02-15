@@ -32,9 +32,13 @@ class CardListView extends StatelessWidget {
           return SliverToBoxAdapter(
             child: CustomErrorMessage(errorMessage: state.errorMessage),
           );
-        } else {
+        } else if (state is CartProductLoading) {
           return const SliverToBoxAdapter(
             child: CustomLoadingIndicator(),
+          );
+        } else {
+          return const SliverToBoxAdapter(
+            child: Text('Unexpected error '),
           );
         }
       },

@@ -11,7 +11,7 @@ class ProductImage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AspectRatio(
-        aspectRatio: 1.3,
+        aspectRatio: 1,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: CachedNetworkImage(

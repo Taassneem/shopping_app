@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
-import 'package:shopping_app/core/utils/service_locator.dart';
+import 'package:shopping_app/core/services/service_locator.dart';
 
 import '../../../../core/utils/app_color.dart';
 

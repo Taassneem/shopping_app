@@ -10,7 +10,7 @@ import '../features/home/presentation/manager/fetch_categories_cubit/fetch_categ
 import '../features/home/presentation/manager/fetch_products_cubit/fetch_products_cubit.dart';
 import '../theme/theme.dart';
 import '../core/utils/app_router.dart';
-import '../core/utils/service_locator.dart';
+import '../core/services/service_locator.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

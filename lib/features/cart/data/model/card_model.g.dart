@@ -20,19 +20,22 @@ class CardModelAdapter extends TypeAdapter<CardModel> {
       image: fields[0] as String,
       title: fields[1] as String,
       price: fields[2] as num,
+      quantity: fields[3] as dynamic,
     );
   }
 
   @override
   void write(BinaryWriter writer, CardModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.image)
       ..writeByte(1)
       ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.price);
+      ..write(obj.price)
+      ..writeByte(3)
+      ..write(obj.quantity);
   }
 
   @override

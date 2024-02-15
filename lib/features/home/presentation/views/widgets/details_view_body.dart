@@ -26,9 +26,6 @@ class CardDetailsBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          const SizedBox(
-            height: 20,
-          ),
           ProductImage(
             productModel: productModel,
           ),
@@ -155,10 +152,11 @@ class CardDetailsBody extends StatelessWidget {
               if (state is AddToCardSuccess) {
                 showToast('Add To Cart Successfully ');
               } else if (state is AddToCardFailure) {
-                showToast('there is a failure ${state.errorMessage}');
+                showToast(' ${state.errorMessage}');
               }
             },
             builder: (context, state) {
+              AddToCardCubit item = BlocProvider.of<AddToCardCubit>(context);
               return state is AddToCardLoading
                   ? const CircularProgressIndicator()
                   : CustomGesterDetector(
@@ -167,9 +165,9 @@ class CardDetailsBody extends StatelessWidget {
                         var cardModel = CardModel(
                             image: productModel.image!,
                             title: productModel.title!,
-                            price: productModel.price!);
-                        BlocProvider.of<AddToCardCubit>(context)
-                            .addToCart(cardModel);
+                            price: productModel.price!,
+                            quantity: 1);
+                        item.addToCart(cardModel);
                       },
                     );
             },

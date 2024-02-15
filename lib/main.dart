@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/function/check_state_changes.dart';
-import 'package:shopping_app/core/utils/service_locator.dart';
+import 'package:shopping_app/core/services/service_locator.dart';
 import 'package:shopping_app/core/bloc/simple_bloc_observer.dart';
 import 'package:shopping_app/features/cart/data/model/card_model.dart';
 import 'app/shopping_app.dart';

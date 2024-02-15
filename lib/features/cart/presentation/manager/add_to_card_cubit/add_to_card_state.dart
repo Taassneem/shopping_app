@@ -33,4 +33,6 @@ final class CartProductFailure extends AddToCardState {
   const CartProductFailure({required this.errorMessage});
 }
 
-
+final class QuantityIncrement extends AddToCardState{}
+final class QuantityDecrement extends AddToCardState{}
+final class CalculateTotalPrice extends AddToCardState{}
