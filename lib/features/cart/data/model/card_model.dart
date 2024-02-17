@@ -29,6 +29,6 @@ class CardModel extends HiveObject {
   }
 
   num calculateTotalPrice() {
-  return  price * quantity;
+    return price * quantity;
   }
 }
