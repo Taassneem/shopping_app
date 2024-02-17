@@ -19,6 +19,12 @@ final class AddToCardFailure extends AddToCardState {
   const AddToCardFailure({required this.errorMessage});
 }
 
+final class ItemAlreadyExist extends AddToCardState {
+  final String errorMessage;
+
+  const ItemAlreadyExist({required this.errorMessage});
+}
+
 final class CartProductLoading extends AddToCardState {}
 
 final class CartProductSuccess extends AddToCardState {
@@ -33,6 +39,8 @@ final class CartProductFailure extends AddToCardState {
   const CartProductFailure({required this.errorMessage});
 }
 
-final class QuantityIncrement extends AddToCardState{}
-final class QuantityDecrement extends AddToCardState{}
-final class CalculateTotalPrice extends AddToCardState{}
+final class QuantityIncrement extends AddToCardState {}
+
+final class QuantityDecrement extends AddToCardState {}
+
+final class CalculateTotalPrice extends AddToCardState {}

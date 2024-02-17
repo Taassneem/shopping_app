@@ -73,5 +73,13 @@
     "total":"Total",
     "checkout":"Checkout",
     "home":"Home",
-    "profile":"Profile"
+    "profile":"Profile",
+    "noItemsInCart":"No items in cart",
+    "accountInformation":"Account Information",
+    "wishList":"Wish List",
+    "logout":"Logout",
+    "darkMode":"Dark Mode",
+    "addToCartSuccessfully":"Add To Cart Successfully",
+    "itemAlreadyExistsInCart":"Item already exists in cart",
+    "notifications":"Notifications"
 }

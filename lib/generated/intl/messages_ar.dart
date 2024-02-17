@@ -23,8 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("حول"),
+        "accountInformation":
+            MessageLookupByLibrary.simpleMessage("معلومات الحساب"),
         "addReviews": MessageLookupByLibrary.simpleMessage("إضافة مراجعة"),
         "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "addToCartSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "تمت إضافة العنصر إلى العربة بنجاح"),
         "adidas": MessageLookupByLibrary.simpleMessage("Adidas"),
         "agree": MessageLookupByLibrary.simpleMessage(
             "بالاتصال بحسابك، أكد أنك توافق على"),
@@ -48,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "continueShopping":
             MessageLookupByLibrary.simpleMessage("متابعة التسوق"),
         "creatAccuont": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("الوضع الداكن"),
         "deliveryAddress":
             MessageLookupByLibrary.simpleMessage("عنوان التسليم"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
@@ -69,15 +74,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لمظهر رائع ومختلف كل يوم"),
         "introTitle":
             MessageLookupByLibrary.simpleMessage("مظهر جيد , شعور رائع"),
+        "itemAlreadyExistsInCart": MessageLookupByLibrary.simpleMessage(
+            "العنصر موجود بالفعل في العربة"),
         "jewelery": MessageLookupByLibrary.simpleMessage("مجوهرات"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage("هيا بنا نبدأ"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "men": MessageLookupByLibrary.simpleMessage("ذكر"),
         "menClothing": MessageLookupByLibrary.simpleMessage("رجال"),
         "myCards": MessageLookupByLibrary.simpleMessage("بطاقاتي"),
         "newArrivals": MessageLookupByLibrary.simpleMessage("وصول جديد"),
         "newPass": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "nike": MessageLookupByLibrary.simpleMessage("Nike"),
+        "noItemsInCart":
+            MessageLookupByLibrary.simpleMessage("لا توجد عناصر في العربة"),
+        "notifications": MessageLookupByLibrary.simpleMessage("اشعارات"),
         "order": MessageLookupByLibrary.simpleMessage("طلب"),
         "orderConfirmed":
             MessageLookupByLibrary.simpleMessage("تم تأكيد الطلب"),
@@ -118,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرجاء إدخال بياناتك للمتابعة"),
         "welcomeToLaza":
             MessageLookupByLibrary.simpleMessage("مرحبًا بك في لازا."),
+        "wishList": MessageLookupByLibrary.simpleMessage("قائمة الرغبات"),
         "women": MessageLookupByLibrary.simpleMessage("انثي"),
         "womenClothing": MessageLookupByLibrary.simpleMessage("نساء")
       };

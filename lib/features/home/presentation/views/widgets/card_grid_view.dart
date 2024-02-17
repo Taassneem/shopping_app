@@ -18,7 +18,7 @@ class CardGridView extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 10,
               crossAxisSpacing: 15,
-              childAspectRatio: .55,
+              childAspectRatio: .7,
             ),
             itemCount: state.product.length,
             itemBuilder: (BuildContext context, int index) {

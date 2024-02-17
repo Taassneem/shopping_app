@@ -22,7 +22,12 @@ class CartViewBody extends StatelessWidget {
       builder: (context, state) {
         if (state is CartProductSuccess) {
           return state.cards.isEmpty
-              ? const NoItemsInCart()
+              ? const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    NoItemsInCart(),
+                  ],
+                )
               : SafeArea(
                   child: CustomScrollView(
                     slivers: <Widget>[
@@ -38,16 +43,16 @@ class CartViewBody extends StatelessWidget {
                             children: [
                               AddressInfo(
                                 text: s.deliveryAddress,
-                                title: 'Chhatak, Sunamgonj 12/8AB',
+                                title: ' Cairo, Nasr City 12/8AB',
                                 image: AppAssets.map,
-                                subTitle: 'Sylhet',
+                                subTitle: 'Egypt',
                                 onPressed: () {
                                   GoRouter.of(context)
                                       .push(AppRouter.addressView);
                                 },
                               ),
                               AddressInfo(
-                                title: 'Visa Classic',
+                                title: 'Visa Master',
                                 image: AppAssets.visa,
                                 text: s.paymentMethod,
                                 subTitle: '**** 7690',
@@ -67,6 +72,9 @@ class CartViewBody extends StatelessWidget {
                         child: CustomGesterDetector(
                           text: s.checkout,
                           onTap: () {
+                            BlocProvider.of<AddToCardCubit>(context)
+                                .cards!
+                                .clear();
                             GoRouter.of(context)
                                 .push(AppRouter.orederConfirmedView);
                           },

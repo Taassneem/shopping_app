@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shopping_app/core/bloc/lang_cubit/global_cubit.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
@@ -23,7 +25,9 @@ class CustomCategoriesAppBar extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: AppColors.lightGrey,
+            color: BlocProvider.of<GlobalCubit>(context).darkTheme
+                ? AppColors.darkGrey
+                : AppColors.lightGrey,
           ),
           child: IconButton(
             onPressed: () {
@@ -31,6 +35,7 @@ class CustomCategoriesAppBar extends StatelessWidget {
             },
             icon: const Icon(
               Icons.arrow_back,
+              color: AppColors.black,
             ),
           ),
         ),
@@ -39,7 +44,9 @@ class CustomCategoriesAppBar extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: AppColors.lightGrey,
+            color: BlocProvider.of<GlobalCubit>(context).darkTheme
+                ? AppColors.darkGrey
+                : AppColors.lightGrey,
           ),
           child: Center(
             child: Text(
@@ -57,7 +64,9 @@ class CustomCategoriesAppBar extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: AppColors.lightGrey,
+            color: BlocProvider.of<GlobalCubit>(context).darkTheme
+                ? AppColors.darkGrey
+                : AppColors.lightGrey,
           ),
           child: IconButton(
             onPressed: () {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/core/utils/app_color.dart';
 import 'package:shopping_app/generated/l10n.dart';
 
 class ViewAllScreen extends StatelessWidget {
@@ -17,9 +16,7 @@ class ViewAllScreen extends StatelessWidget {
       children: [
         Text(
           viewName,
-          style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                color: AppColors.black,
-              ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         TextButton(
           onPressed: onPressed,

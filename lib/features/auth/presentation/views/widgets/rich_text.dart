@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_app/core/utils/app_color.dart';
 
 class Richtext extends StatelessWidget {
   const Richtext({
@@ -26,10 +25,7 @@ class Richtext extends StatelessWidget {
           ),
           TextSpan(
             text: ' $textButton',
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall!
-                .copyWith(color: AppColors.black),
+            style: Theme.of(context).textTheme.displaySmall,
             recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
         ],

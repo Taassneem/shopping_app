@@ -59,10 +59,8 @@ class ReviewInfo extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '4.8  ',
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            color: AppColors.black,
-                          ),
+                      '4.8   ',
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                     Text(
                       'Rating',

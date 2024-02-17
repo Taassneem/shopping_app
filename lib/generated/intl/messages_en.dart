@@ -23,8 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
+        "accountInformation":
+            MessageLookupByLibrary.simpleMessage("Account Information"),
         "addReviews": MessageLookupByLibrary.simpleMessage("Add Review"),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+        "addToCartSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Add To Cart Successfully"),
         "adidas": MessageLookupByLibrary.simpleMessage("Adidas"),
         "agree": MessageLookupByLibrary.simpleMessage(
             "By connecting your account confirm that you agree with our"),
@@ -47,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue Shopping"),
         "creatAccuont":
             MessageLookupByLibrary.simpleMessage("Create an Account"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "deliveryAddress":
             MessageLookupByLibrary.simpleMessage("Delivery Address"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -67,16 +72,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "Create your individual & unique style and look amazing everyday."),
         "introTitle":
             MessageLookupByLibrary.simpleMessage("Look Good, Feel Good"),
+        "itemAlreadyExistsInCart":
+            MessageLookupByLibrary.simpleMessage("Item already exists in cart"),
         "jewelery": MessageLookupByLibrary.simpleMessage("Jewelery"),
         "letsGetStarted":
             MessageLookupByLibrary.simpleMessage("Let`s Get Started"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "men": MessageLookupByLibrary.simpleMessage("Male"),
         "menClothing": MessageLookupByLibrary.simpleMessage("Men"),
         "myCards": MessageLookupByLibrary.simpleMessage("My Cards"),
         "newArrivals": MessageLookupByLibrary.simpleMessage("New Arrivals"),
         "newPass": MessageLookupByLibrary.simpleMessage("New Password"),
         "nike": MessageLookupByLibrary.simpleMessage("Nike"),
+        "noItemsInCart":
+            MessageLookupByLibrary.simpleMessage("No items in cart"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "orderConfirmed":
             MessageLookupByLibrary.simpleMessage("Order Confirmed"),
@@ -117,6 +128,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter your data to continue"),
         "welcomeToLaza":
             MessageLookupByLibrary.simpleMessage("Welcome to Laza."),
+        "wishList": MessageLookupByLibrary.simpleMessage("Wish List"),
         "women": MessageLookupByLibrary.simpleMessage("Female"),
         "womenClothing": MessageLookupByLibrary.simpleMessage("Women")
       };

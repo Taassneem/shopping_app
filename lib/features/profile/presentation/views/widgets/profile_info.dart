@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/core/utils/app_color.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/core/bloc/lang_cubit/global_cubit.dart';
 
 class ProfileListTile extends StatelessWidget {
   const ProfileListTile({
@@ -7,30 +8,35 @@ class ProfileListTile extends StatelessWidget {
     this.leading,
     required this.title,
     this.onTap,
+    this.onPressed,
   });
   final Widget? leading;
   final String title;
   final void Function()? onTap;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Divider(),
-        GestureDetector(
+        ListTile(
           onTap: onTap,
-          child: ListTile(
-            leading: leading,
-            title: Text(
-              title,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            trailing: const Icon(
+          leading: leading,
+          title: Text(
+            title,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          trailing: GestureDetector(
+            onTap: onPressed,
+            child: Icon(
               Icons.arrow_forward_ios,
               size: 18,
-              color: AppColors.black,
+              color: BlocProvider.of<GlobalCubit>(context).darkTheme
+                  ? Colors.white
+                  : Colors.black,
             ),
-            contentPadding: EdgeInsets.zero,
           ),
+          contentPadding: EdgeInsets.zero,
         ),
       ],
     );

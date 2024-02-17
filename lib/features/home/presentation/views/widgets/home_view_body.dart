@@ -48,7 +48,7 @@ class HomeViewBody extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     const GreatingCustomer(),
                     ViewAllScreen(

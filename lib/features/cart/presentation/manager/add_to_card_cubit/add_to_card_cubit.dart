@@ -19,8 +19,8 @@ class AddToCardCubit extends Cubit<AddToCardState> {
       var existingItems =
           cardBox.values.where((item) => item.title == card.title).toList();
       if (existingItems.isNotEmpty) {
-        emit(const AddToCardFailure(
-            errorMessage: 'Item already exists in cart'));
+        emit(const ItemAlreadyExist(
+            errorMessage: 'Error message'));
       } else {
         await cardBox.add(card);
         emit(AddToCardSuccess());

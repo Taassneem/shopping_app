@@ -8,7 +8,8 @@ ThemeData getThemeData() {
     brightness: Brightness.light,
     textTheme: TextTheme(
       labelMedium: GoogleFonts.inter(
-        fontSize: 16,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
       ),
       labelSmall: GoogleFonts.inter(
         fontSize: 11,
@@ -19,28 +20,78 @@ ThemeData getThemeData() {
         fontWeight: FontWeight.bold,
       ),
       displayMedium: GoogleFonts.lato(
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: FontWeight.w600,
         color: AppColors.darkGrey,
       ),
       displaySmall: GoogleFonts.lato(
-        fontSize: 15,
+        fontSize: 14,
         color: AppColors.darkGrey,
       ),
       bodyMedium: GoogleFonts.lato(
         fontSize: 24,
       ),
       bodySmall: GoogleFonts.lato(
-        fontSize: 18,
-        // fontWeight: FontWeight.w600,
+        fontSize: 16,
       ),
       titleMedium: GoogleFonts.lato(
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: FontWeight.w600,
       ),
       titleSmall: GoogleFonts.lato(
         fontSize: 15,
+        fontWeight: FontWeight.w600,
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryColor,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    ),
+  );
+}
+
+ThemeData getDarkThemeData() {
+  return ThemeData(
+    brightness: Brightness.dark,
+    textTheme: TextTheme(
+      labelMedium: GoogleFonts.inter(
+        fontSize: 14,
         fontWeight: FontWeight.w500,
+      ),
+      labelSmall: GoogleFonts.inter(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+      ),
+      displayLarge: GoogleFonts.lato(
+        fontSize: 28,
+        fontWeight: FontWeight.bold,
+      ),
+      displayMedium: GoogleFonts.lato(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+      ),
+      displaySmall: GoogleFonts.lato(
+        fontSize: 14,
+        color: AppColors.darkGrey,
+      ),
+      bodyMedium: GoogleFonts.lato(
+        fontSize: 24,
+      ),
+      bodySmall: GoogleFonts.lato(
+        fontSize: 16,
+      ),
+      titleMedium: GoogleFonts.lato(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+      ),
+      titleSmall: GoogleFonts.lato(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_gester_detector.dart';
 import 'package:shopping_app/core/utils/app_assets.dart';
 import 'package:shopping_app/core/utils/app_router.dart';
@@ -33,17 +34,24 @@ class OrderConfirmedViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displaySmall,
               ),
-              SizedBox(height: size * 0.206),
+              SizedBox(height: isArabic() ? size * 0.21 : 0.208),
             ],
           ),
         ),
-        CustomGesterDetector(
-          text: s.continueShopping,
-          onTap: () {
-            GoRouter.of(context).push(AppRouter.homeView);
-          },
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: CustomGesterDetector(
+            text: s.continueShopping,
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.baseView);
+            },
+          ),
         ),
       ],
     );
   }
+}
+
+bool isArabic() {
+  return Intl.getCurrentLocale() == 'ar';
 }

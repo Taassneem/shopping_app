@@ -73,5 +73,13 @@
     "total": "الإجمالي",
     "checkout": "الدفع",
     "home": " صفحه رئيسيه",
-    "profile": "صفحه شخصيه"
+    "profile": "صفحه شخصيه",
+    "noItemsInCart": "لا توجد عناصر في العربة",
+    "accountInformation": "معلومات الحساب",
+    "wishList": "قائمة الرغبات",
+    "logout": "تسجيل الخروج",
+    "darkMode": "الوضع الداكن",
+    "addToCartSuccessfully": "تمت إضافة العنصر إلى العربة بنجاح",
+    "itemAlreadyExistsInCart": "العنصر موجود بالفعل في العربة",
+    "notifications": "اشعارات"
 }

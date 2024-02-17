@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/core/bloc/lang_cubit/global_cubit.dart';
 import 'package:shopping_app/generated/l10n.dart';
 
 import '../../../../../core/utils/app_color.dart';
@@ -14,7 +16,7 @@ class SearchTextField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: const Icon(
           Icons.search,
-          color: AppColors.darkGrey,
+          color: AppColors.black,
         ),
         border: UnderlineInputBorder(
           borderSide: BorderSide.none,
@@ -22,8 +24,13 @@ class SearchTextField extends StatelessWidget {
         ),
         hintText: '${S.of(context).search}...',
         filled: true,
-        fillColor: AppColors.lightGrey,
-        hintStyle: Theme.of(context).textTheme.displayMedium,
+        fillColor: BlocProvider.of<GlobalCubit>(context).darkTheme
+            ? AppColors.darkGrey
+            : AppColors.lightGrey,
+        hintStyle: Theme.of(context)
+            .textTheme
+            .displayMedium!
+            .copyWith(color: AppColors.black),
       ),
     );
   }

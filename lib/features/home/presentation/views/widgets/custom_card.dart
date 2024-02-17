@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/core/utils/widget/custom_loading_indicator.dart';
 import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
 import 'package:shopping_app/features/home/presentation/views/card_details_view.dart';
-import 'package:shopping_app/core/utils/app_color.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.productModel});
@@ -27,7 +26,7 @@ class CustomCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AspectRatio(
-            aspectRatio: 3 / 4,
+            aspectRatio: 4 / 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: CachedNetworkImage(
@@ -45,18 +44,12 @@ class CustomCard extends StatelessWidget {
             productModel.title ?? '',
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall!
-                .copyWith(color: AppColors.black),
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           const SizedBox(height: 5),
           Text(
             r'$' '${productModel.price}',
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall!
-                .copyWith(color: AppColors.black),
+            style: Theme.of(context).textTheme.displaySmall,
           )
         ],
       ),

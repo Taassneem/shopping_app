@@ -799,6 +799,86 @@ class S {
       args: [],
     );
   }
+
+  /// `No items in cart`
+  String get noItemsInCart {
+    return Intl.message(
+      'No items in cart',
+      name: 'noItemsInCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Information`
+  String get accountInformation {
+    return Intl.message(
+      'Account Information',
+      name: 'accountInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wish List`
+  String get wishList {
+    return Intl.message(
+      'Wish List',
+      name: 'wishList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add To Cart Successfully`
+  String get addToCartSuccessfully {
+    return Intl.message(
+      'Add To Cart Successfully',
+      name: 'addToCartSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item already exists in cart`
+  String get itemAlreadyExistsInCart {
+    return Intl.message(
+      'Item already exists in cart',
+      name: 'itemAlreadyExistsInCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

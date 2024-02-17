@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shopping_app/core/function/custom_toast.dart';
+import 'package:shopping_app/core/utils/app_router.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_gester_detector.dart';
-import 'package:shopping_app/features/auth/presentation/views/widgets/custom_text_button.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/rich_text.dart';
 import 'package:shopping_app/features/cart/data/model/card_model.dart';
 import 'package:shopping_app/features/cart/presentation/manager/add_to_card_cubit/add_to_card_cubit.dart';
 import 'package:shopping_app/features/home/data/models/product_model/product_model.dart';
-import 'package:shopping_app/features/review/presentation/views/review_view.dart';
-import 'package:shopping_app/core/utils/app_color.dart';
+import 'package:shopping_app/features/home/presentation/views/widgets/view_all_screen.dart';
 import 'package:shopping_app/generated/l10n.dart';
 
-// import 'review_info.dart';
+import 'review_info.dart';
 import 'size_card.dart';
 import 'product_image.dart';
 import 'total_price.dart';
 
 class CardDetailsBody extends StatelessWidget {
-  const CardDetailsBody({super.key, required this.productModel});
+  const CardDetailsBody({
+    super.key,
+    required this.productModel,
+  });
   final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class CardDetailsBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
+          const SizedBox(height: 8),
           ProductImage(
             productModel: productModel,
           ),
@@ -68,27 +72,19 @@ class CardDetailsBody extends StatelessWidget {
                         productModel.title ?? 'Unknown',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style:
-                            Theme.of(context).textTheme.displayMedium!.copyWith(
-                                  color: AppColors.black,
-                                ),
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
                     Text(
                       r'$' '${productModel.price}',
-                      style:
-                          Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: AppColors.black,
-                              ),
+                      style: Theme.of(context).textTheme.displayMedium,
                     )
                   ],
                 ),
                 const SizedBox(height: 21),
                 Text(
                   s.size,
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                        color: AppColors.black,
-                      ),
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
                 const SizedBox(height: 10),
                 const Row(
@@ -104,9 +100,7 @@ class CardDetailsBody extends StatelessWidget {
                 const SizedBox(height: 20),
                 Text(
                   s.description,
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                        color: AppColors.black,
-                      ),
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
                 const SizedBox(height: 10),
                 Richtext(
@@ -114,32 +108,15 @@ class CardDetailsBody extends StatelessWidget {
                   textButton: ' ${s.readMore}..',
                 ),
                 const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      s.reviews,
-                      style:
-                          Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: AppColors.black,
-                              ),
-                    ),
-                    CustomTextButton(
-                      text: s.viewAll,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ReviewView(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                ViewAllScreen(
+                  viewName: s.reviews,
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.reviewView);
+                  },
                 ),
                 const SizedBox(height: 10),
-                // const ReviewInfo(),
-                // const SizedBox(height: 20),
+                const ReviewInfo(),
+                const SizedBox(height: 20),
                 TotalPrice(
                   productModel: productModel,
                 ),
@@ -150,9 +127,11 @@ class CardDetailsBody extends StatelessWidget {
           BlocConsumer<AddToCardCubit, AddToCardState>(
             listener: (context, state) {
               if (state is AddToCardSuccess) {
-                showToast('Add To Cart Successfully ');
+                showToast(S.of(context).addToCartSuccessfully);
               } else if (state is AddToCardFailure) {
                 showToast(' ${state.errorMessage}');
+              } else if (state is ItemAlreadyExist) {
+                showToast(s.itemAlreadyExistsInCart);
               }
             },
             builder: (context, state) {

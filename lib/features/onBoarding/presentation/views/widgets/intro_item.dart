@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shopping_app/core/bloc/cubit/global_cubit.dart';
+import 'package:shopping_app/core/bloc/lang_cubit/global_cubit.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/services/service_locator.dart';
 import 'package:shopping_app/features/auth/presentation/views/widgets/custom_text_button.dart';
@@ -62,9 +62,7 @@ class IntoItem extends StatelessWidget {
                       horizontal: 20,
                       onPressed: () {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
-                        getIt
-                            .get<CacheHelper>()
-                            .saveData(key: 'IsEnglish', value: true);
+                        
                       },
                     ),
                     const SizedBox(
@@ -77,9 +75,7 @@ class IntoItem extends StatelessWidget {
                       textColor: AppColors.white,
                       onPressed: () {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
-                        getIt
-                            .get<CacheHelper>()
-                            .saveData(key: 'IsArabic', value: true);
+                        
                       },
                     ),
                   ],

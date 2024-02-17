@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shopping_app/core/database/cache/cache_helper.dart';
 import 'package:shopping_app/core/function/check_state_changes.dart';
+import 'package:shopping_app/core/services/local_notification_service.dart';
 import 'package:shopping_app/core/services/service_locator.dart';
 import 'package:shopping_app/core/bloc/simple_bloc_observer.dart';
 import 'package:shopping_app/features/cart/data/model/card_model.dart';
@@ -23,6 +24,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(CardModelAdapter());
   await Hive.openBox<CardModel>('card_box');
+  await LocalNotificationService.init();
   await Permission.notification.isDenied.then(
     (value) {
       if (value) {

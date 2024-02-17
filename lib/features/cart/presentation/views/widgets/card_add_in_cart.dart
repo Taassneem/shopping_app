@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:shopping_app/core/utils/widget/custom_loading_indicator.dart';
 import 'package:shopping_app/features/cart/data/model/card_model.dart';
 import 'package:shopping_app/features/cart/presentation/manager/add_to_card_cubit/add_to_card_cubit.dart';
@@ -16,7 +17,8 @@ class CardAddInCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, bottom: 16),
+      padding:
+          EdgeInsets.only(left: 8.0, bottom: 16, right: isArabic() ? 16 : 0),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.17,
         child: Row(
@@ -59,4 +61,8 @@ class CardAddInCart extends StatelessWidget {
       ),
     );
   }
+}
+
+bool isArabic() {
+  return Intl.getCurrentLocale() == 'ar';
 }

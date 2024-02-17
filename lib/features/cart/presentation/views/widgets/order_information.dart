@@ -33,13 +33,13 @@ class OrderInformation extends StatelessWidget {
               const SizedBox(height: 10),
               Cost(
                 text: s.shippingCost,
-                price: r'$100',
+                price: r'$10',
               ),
               const SizedBox(height: 10),
               Cost(
                 text: s.total,
                 price:
-                    '\$${BlocProvider.of<AddToCardCubit>(context).totalPriceForAllItems().round() + 100}',
+                    '\$${BlocProvider.of<AddToCardCubit>(context).totalPriceForAllItems().round() + 10}',
               ),
             ],
           );

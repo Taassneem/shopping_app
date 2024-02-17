@@ -58,9 +58,6 @@ class AddressInfo extends StatelessWidget {
                   subTitle,
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
-                trailing: const Icon(
-                  Icons.check,
-                ),
               ),
             )
           ],
