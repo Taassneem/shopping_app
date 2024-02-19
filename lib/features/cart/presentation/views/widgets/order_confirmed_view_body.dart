@@ -34,7 +34,7 @@ class OrderConfirmedViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displaySmall,
               ),
-              SizedBox(height: isArabic() ? size * 0.21 : 0.208),
+              SizedBox(height: isArabic() ? size * 0.222 : size * 0.208),
             ],
           ),
         ),

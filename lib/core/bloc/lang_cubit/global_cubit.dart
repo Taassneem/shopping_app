@@ -22,15 +22,6 @@ class GlobalCubit extends Cubit<GlobalState> {
     emit(GetChangeTheme());
   }
 
-  void getLang() async {
-    String? langCodeFromCache =
-        await getIt<CacheHelper>().getData(key: 'isArabic');
-    print('Language code retrieved from cache: $langCodeFromCache');
-    isArabic = langCodeFromCache == 'en';
-    langCode = isArabic ? 'ar' : 'en';
-    emit(GetChangeLang());
-  }
-
   bool isArabic = false;
   String langCode = "en";
 
@@ -45,5 +36,14 @@ class GlobalCubit extends Cubit<GlobalState> {
     print('Language code saved: $langCode');
 
     emit(ChangeLanguageSuccess());
+  }
+
+  void getLang() async {
+    String? langCodeFromCache =
+        await getIt<CacheHelper>().getData(key: 'isArabic');
+    print('Language code retrieved from cache: $langCodeFromCache');
+    isArabic = langCodeFromCache == 'en';
+    langCode = isArabic ? 'ar' : 'en';
+    emit(GetChangeLang());
   }
 }

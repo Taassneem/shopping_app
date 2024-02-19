@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GlobalCubit()..getThemeData()..getLang(),
+          create: (context) => GlobalCubit()
+            ..getThemeData()
+            ..getLang(),
         ),
         BlocProvider(
           create: (context) => FetchProductsCubit(
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) {
           return MaterialApp.router(
-            locale: Locale(BlocProvider.of<GlobalCubit>(context).langCode,''),
+            locale: Locale(BlocProvider.of<GlobalCubit>(context).langCode, ''),
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

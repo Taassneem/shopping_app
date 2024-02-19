@@ -1,5 +1,3 @@
-// ignore_for_file: collection_methods_unrelated_type
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shopping_app/core/errors/failure.dart';
@@ -13,9 +11,12 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, List<ProductModel>>> fetchProducts() async {
+  Future<Either<Failure, List<ProductModel>>> fetchProducts({
+    required int limit,
+    required int offset,
+  }) async {
     try {
-      var data = await apiService.get(endPoint: 'products');
+      var data = await apiService.get(endPoint: 'products?limit=$limit&offset=$offset');
       List<ProductModel> products = [];
       for (int i = 0; i < data.length; i++) {
         products.add(ProductModel.fromJson(data[i]));
@@ -76,5 +77,4 @@ class HomeRepoImpl implements HomeRepo {
       );
     }
   }
-  
 }

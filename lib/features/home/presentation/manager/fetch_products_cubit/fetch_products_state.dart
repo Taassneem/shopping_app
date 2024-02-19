@@ -11,6 +11,16 @@ final class FetchProductsInitial extends FetchProductsState {}
 
 final class FetchProductsLoading extends FetchProductsState {}
 
+final class FetchAllProductsLoading extends FetchProductsState {}
+
+final class FetchAllProductsSuccess extends FetchProductsState {}
+
+final class FetchAllProductsFailure extends FetchProductsState {
+  final String errorMessage;
+
+  const FetchAllProductsFailure({required this.errorMessage});
+}
+
 final class FetchProductsSuccess extends FetchProductsState {
   final List<ProductModel> product;
 

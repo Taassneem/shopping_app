@@ -11,6 +11,9 @@ class CardGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FetchProductsCubit, FetchProductsState>(
+      buildWhen: (previous, current) =>
+          current is! FetchAllProductsLoading &&
+          current is! FetchProductsFailure,
       builder: (context, state) {
         if (state is FetchProductsSuccess) {
           return SliverGrid.builder(
@@ -34,11 +37,15 @@ class CardGridView extends StatelessWidget {
               errorMessage: state.errorMessage,
             ),
           );
-        } else {
+        } else if (state is FetchProductsLoading) {
           return const SliverToBoxAdapter(
             child: Center(
               child: CircularProgressIndicator(),
             ),
+          );
+        } else {
+          return const SliverToBoxAdapter(
+            child: SizedBox.shrink(),
           );
         }
       },
