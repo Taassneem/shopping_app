@@ -16,11 +16,14 @@ class HomeRepoImpl implements HomeRepo {
     required int offset,
   }) async {
     try {
-      var data = await apiService.get(endPoint: 'products?limit=$limit&offset=$offset');
-      List<ProductModel> products = [];
-      for (int i = 0; i < data.length; i++) {
-        products.add(ProductModel.fromJson(data[i]));
-      }
+      var data = await apiService.get(
+          endPoint: 'products?limit=$limit&offset=$offset');
+      List<ProductModel> products =
+          data.map((item) => ProductModel.fromJson(item)).toList();
+      // List<ProductModel> products = [];
+      // for (int i = 0; i < data.length; i++) {
+      //   products.add(ProductModel.fromJson(data[i]));
+      // }
       return right(products);
     } catch (e) {
       if (e is DioException) {
@@ -39,10 +42,8 @@ class HomeRepoImpl implements HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.get(endPoint: 'products/category/$category');
-      List<ProductModel> products = [];
-      for (int i = 0; i < data.length; i++) {
-        products.add(ProductModel.fromJson(data[i]));
-      }
+      List<ProductModel> products =
+          data.map((item) => ProductModel.fromJson(item)).toList();
       return right(products);
     } catch (e) {
       if (e is DioException) {
@@ -60,11 +61,8 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<CategoryModel>>> fetchCategories() async {
     try {
       var data = await apiService.get(endPoint: 'products/categories');
-
-      List<CategoryModel> categories = [];
-      for (int i = 0; i < data.length; i++) {
-        categories.add(CategoryModel.fromJson(data[i]));
-      }
+      List<CategoryModel> categories =
+          data.map((item) => CategoryModel.fromJson(item)).toList();
       return right(categories);
     } catch (e) {
       if (e is DioException) {
