@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:shopping_app/core/bloc/lang_cubit/global_cubit.dart';
+import 'package:shopping_app/core/bloc/global_cubit/global_cubit.dart';
 import 'package:shopping_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:shopping_app/features/cart/presentation/manager/add_to_card_cubit/add_to_card_cubit.dart';
 import 'package:shopping_app/generated/l10n.dart';
