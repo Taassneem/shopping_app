@@ -17,10 +17,7 @@ import 'product_image.dart';
 import 'total_price.dart';
 
 class CardDetailsBody extends StatelessWidget {
-  const CardDetailsBody({
-    super.key,
-    required this.productModel,
-  });
+  const CardDetailsBody({super.key, required this.productModel});
   final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
@@ -33,9 +30,7 @@ class CardDetailsBody extends StatelessWidget {
           ProductImage(
             productModel: productModel,
           ),
-          const SizedBox(
-            height: 15,
-          ),
+          const SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -53,12 +48,9 @@ class CardDetailsBody extends StatelessWidget {
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 14.0),
-                      child: Text(
-                        s.price,
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
+                    Text(
+                      s.price,
+                      style: Theme.of(context).textTheme.displaySmall,
                     )
                   ],
                 ),

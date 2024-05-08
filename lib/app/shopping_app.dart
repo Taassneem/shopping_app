@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => GlobalCubit()
-            ..getThemeData()
+            // ..getThemeData()
             ..getLang(),
         ),
         BlocProvider(

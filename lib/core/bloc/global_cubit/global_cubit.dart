@@ -16,11 +16,11 @@ class GlobalCubit extends Cubit<GlobalState> {
     emit(ChangeTheme());
   }
 
-  void getThemeData() async {
-    darkTheme = await getIt<CacheHelper>().getData(key: 'isDarkTheme');
+  // void getThemeData() async {
+  //   darkTheme = await getIt<CacheHelper>().getData(key: 'isDarkTheme');
 
-    emit(GetChangeTheme());
-  }
+  //   emit(GetChangeTheme());
+  // }
 
   bool isArabic = false;
   String langCode = "en";

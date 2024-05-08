@@ -24,63 +24,66 @@ class SignInViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var s = S.of(context);
     var size = MediaQuery.of(context).size.height;
-    return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
-      if (state is SignInSuccessState) {
-        FirebaseAuth.instance.currentUser!.emailVerified
-            ? GoRouter.of(context).pushReplacement(AppRouter.baseView)
-            : showToast(s.pleaseVerifyYourAccount);
-      } else if (state is SignInFailureState) {
-        showToast(state.errorMessage);
-      }
-    }, builder: (context, state) {
-      AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
-      return CustomScrollView(slivers: <Widget>[
-        SliverToBoxAdapter(
-            child: Form(
-                key: authCubit.signInKey,
-                child: Column(children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const CustomHeader(),
-                          SizedBox(height: size * 0.1),
-                          CustomTextFormField(
-                              onChanged: (value) {
-                                authCubit.emailAddress = value;
-                              },
-                              hint: s.enterEmail),
-                          const SizedBox(height: 10),
-                          CustomTextFormFieldPass(
-                              hint: s.enterPassword,
-                              onChanged: (value) {
-                                authCubit.password = value;
-                              }),
-                          const SizedBox(height: 25),
-                          const CustomForgetPassword(),
-                          const SizedBox(height: 25),
-                          const CustomRememberMe(),
-                          SizedBox(height: size * 0.212),
-                          Richtext(
-                            textAlign: TextAlign.center,
-                            text: s.agree,
-                            textButton: s.terms,
-                          ),
-                        ]),
-                  ),
-                  state is SignInLoadingState
-                      ? const CircularProgressIndicator()
-                      : CustomGesterDetector(
-                          text: s.login,
-                          onTap: () {
-                            if (authCubit.signInKey.currentState!.validate()) {
-                              authCubit.signInWithEmailAndPassword();
-                            }
-                          })
-                ])))
-      ]);
-    });
+    // return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
+    //   if (state is SignInSuccessState) {
+    //     FirebaseAuth.instance.currentUser!.emailVerified
+    //         ? GoRouter.of(context).pushReplacement(AppRouter.baseView)
+    //         : showToast(s.pleaseVerifyYourAccount);
+    //   } else if (state is SignInFailureState) {
+    //     showToast(state.errorMessage);
+    //   }
+    // }, builder: (context, state) {
+    AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
+    return CustomScrollView(slivers: <Widget>[
+      SliverToBoxAdapter(
+          child: Form(
+              key: authCubit.signInKey,
+              child: Column(children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CustomHeader(),
+                        SizedBox(height: size * 0.1),
+                        CustomTextFormField(
+                            onChanged: (value) {
+                              authCubit.emailAddress = value;
+                            },
+                            hint: s.enterEmail),
+                        const SizedBox(height: 10),
+                        CustomTextFormFieldPass(
+                            hint: s.enterPassword,
+                            onChanged: (value) {
+                              authCubit.password = value;
+                            }),
+                        const SizedBox(height: 25),
+                        const CustomForgetPassword(),
+                        const SizedBox(height: 25),
+                        const CustomRememberMe(),
+                        SizedBox(height: size * 0.212),
+                        Richtext(
+                          textAlign: TextAlign.center,
+                          text: s.agree,
+                          textButton: s.terms,
+                        ),
+                      ]),
+                ),
+                // state is SignInLoadingState
+                //     ? const CircularProgressIndicator()
+                // :
+                CustomGesterDetector(
+                    text: s.login,
+                    onTap: () {
+                      if (authCubit.signInKey.currentState!.validate()) {
+                        // authCubit.signInWithEmailAndPassword();
+                        GoRouter.of(context)
+                            .pushReplacement(AppRouter.baseView);
+                      }
+                    })
+              ])))
+    ]);
+//     });
   }
 }

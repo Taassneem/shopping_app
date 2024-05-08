@@ -69,16 +69,12 @@ class HomeViewBody extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     const GreatingCustomer(),
                     ViewAllScreen(
                       viewName: S.of(context).chooseBrand,
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                   ],
                 ),
               ),
@@ -86,9 +82,7 @@ class HomeViewBody extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                     ViewAllScreen(
                       viewName: S.of(context).newArrivals,
                       onPressed: () {
@@ -97,9 +91,7 @@ class HomeViewBody extends StatelessWidget {
                         );
                       },
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                   ],
                 ),
               ),
@@ -121,7 +113,7 @@ class HomeViewBody extends StatelessWidget {
                 errorMessage: state.errorMessage,
               );
             } else {
-              return const SizedBox.shrink();
+              return  Container(color: Colors.transparent);
             }
           },
         ),

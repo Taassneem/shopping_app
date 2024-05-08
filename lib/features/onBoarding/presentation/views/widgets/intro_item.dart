@@ -62,7 +62,6 @@ class IntoItem extends StatelessWidget {
                       horizontal: 20,
                       onPressed: () {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
-                        
                       },
                     ),
                     const SizedBox(
@@ -75,7 +74,6 @@ class IntoItem extends StatelessWidget {
                       textColor: AppColors.white,
                       onPressed: () {
                         BlocProvider.of<GlobalCubit>(context).changeLang();
-                        
                       },
                     ),
                   ],

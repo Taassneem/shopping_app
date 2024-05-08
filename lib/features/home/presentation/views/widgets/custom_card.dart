@@ -15,9 +15,7 @@ class CustomCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return CardDetailsView(
-                productModel: productModel,
-              );
+              return CardDetailsView(productModel: productModel);
             },
           ),
         );

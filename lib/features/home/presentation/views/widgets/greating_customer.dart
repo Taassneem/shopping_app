@@ -18,27 +18,21 @@ class GreatingCustomer extends StatelessWidget {
           S.of(context).hello,
           style: Theme.of(context).textTheme.displayLarge,
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 5),
         Text(
           S.of(context).welcomeToLaza,
           style: Theme.of(context).textTheme.displaySmall,
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        const SizedBox(height: 15),
         Row(
           children: [
             const SizedBox(
               width: 290,
               child: SearchTextField(),
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            const SizedBox(width: 10),
             Container(
-              width: 50,
+              width: 33,
               height: 50,
               decoration: BoxDecoration(
                 color: AppColors.primaryColor,
@@ -48,9 +42,7 @@ class GreatingCustomer extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        const SizedBox(height: 15),
       ],
     );
   }

@@ -18,65 +18,66 @@ class ForgetPasswordViewBody extends StatelessWidget {
     AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
     var size = MediaQuery.of(context).size.height;
     var s = S.of(context);
-    return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
-      if (state is ResetPasswordSuccessState) {
-        showToast(s.checkYourEmail);
-        GoRouter.of(context).pop();
-      } else if (state is ResetPasswordFailureState) {
-        showToast(state.errorMessage);
-      }
-    }, builder: (context, state) {
-      return CustomScrollView(slivers: <Widget>[
-        SliverToBoxAdapter(
-            child: Form(
-                key: authCubit.resetPasswordKey,
-                child: Column(children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20.0, top: 20, right: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              s.forgetPass,
-                              style: Theme.of(context).textTheme.displayLarge,
-                            ),
-                            SizedBox(height: size * 0.032),
-                            Image.asset(AppAssets.password),
-                            const SizedBox(height: 50),
-                          ],
-                        ),
-                        CustomTextFormField(
-                          hint: s.enterEmail,
-                          onChanged: (value) {
-                            authCubit.emailAddress = value;
-                          },
-                        ),
-                        SizedBox(height: size * 0.17),
-                        Text(
-                          s.confirmMailQoute,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                        SizedBox(height: size * 0.01),
-                      ],
-                    ),
+    // return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
+    //   if (state is ResetPasswordSuccessState) {
+    //     showToast(s.checkYourEmail);
+    //     GoRouter.of(context).pop();
+    //   } else if (state is ResetPasswordFailureState) {
+    //     showToast(state.errorMessage);
+    //   }
+    // }, builder: (context, state) {
+    return CustomScrollView(slivers: <Widget>[
+      SliverToBoxAdapter(
+          child: Form(
+              key: authCubit.resetPasswordKey,
+              child: Column(children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20.0, top: 20, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            s.forgetPass,
+                            style: Theme.of(context).textTheme.displayLarge,
+                          ),
+                          SizedBox(height: size * 0.032),
+                          Image.asset(AppAssets.password),
+                          const SizedBox(height: 50),
+                        ],
+                      ),
+                      CustomTextFormField(
+                        hint: s.enterEmail,
+                        onChanged: (value) {
+                          authCubit.emailAddress = value;
+                        },
+                      ),
+                      SizedBox(height: size * 0.17),
+                      Text(
+                        s.confirmMailQoute,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
+                      SizedBox(height: size * 0.01),
+                    ],
                   ),
-                  state is ResetPasswordLoadingState
-                      ? const CircularProgressIndicator()
-                      : CustomGesterDetector(
-                          text: s.confirmEmail,
-                          onTap: () {
-                            if (authCubit.resetPasswordKey.currentState!
-                                .validate()) {
-                              authCubit.resetPaswordWithEmail();
-                            }
-                          })
-                ])))
-      ]);
-    });
+                ),
+                // state is ResetPasswordLoadingState
+                //     ? const CircularProgressIndicator()
+                //     :
+                CustomGesterDetector(
+                    text: s.confirmEmail,
+                    onTap: () {
+                      if (authCubit.resetPasswordKey.currentState!.validate()) {
+                        // authCubit.resetPaswordWithEmail();
+                        GoRouter.of(context).pop();
+                      }
+                    })
+              ])))
+    ]);
+    // });
   }
 }

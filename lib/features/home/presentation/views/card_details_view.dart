@@ -9,8 +9,10 @@ import 'package:shopping_app/features/home/presentation/views/widgets/details_vi
 import '../../data/models/product_model/product_model.dart';
 
 class CardDetailsView extends StatelessWidget {
-  const CardDetailsView(
-      {super.key, required this.productModel,});
+  const CardDetailsView({
+    super.key,
+    required this.productModel,
+  });
   final ProductModel productModel;
 
   @override
@@ -28,8 +30,6 @@ class CardDetailsView extends StatelessWidget {
                 })
           ],
         ),
-        body: CardDetailsBody(
-          productModel: productModel,
-        ));
+        body: CardDetailsBody(productModel: productModel));
   }
 }
